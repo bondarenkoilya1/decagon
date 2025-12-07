@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
-import type { LanguagesType } from "src/shared";
 
 import {
   Select,
@@ -16,8 +15,10 @@ import {
 export const LanguageSelect: FC = () => {
   const { i18n, t } = useTranslation();
 
-  const switchLanguage = (value: LanguagesType): Promise<TFunction<"translation", undefined>> =>
-    i18n.changeLanguage(value);
+  const switchLanguage = (
+    // todo: languages type
+    value: "english" | "russian"
+  ): Promise<TFunction<"translation", undefined>> => i18n.changeLanguage(value);
 
   return (
     <Select

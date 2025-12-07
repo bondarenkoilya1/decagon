@@ -1,6 +1,5 @@
+import type { IndexingType } from "src/shared";
 import { create } from "zustand";
-
-import type { IndexingType } from "@/shared";
 
 type PremiumFeaturesStoreType = {
   isSubscriber: boolean;

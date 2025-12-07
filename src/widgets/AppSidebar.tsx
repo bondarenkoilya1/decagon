@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router";
 import { Boxes } from "lucide-react";
+import Link from "next/link";
 import type { NavigationItemProps, NavigationSectionProps } from "src/shared";
 
 import {
@@ -40,7 +40,8 @@ export const AppSidebar: FC<SidebarProps> = ({ title, components }) => {
                 {section.items.map((item: NavigationItemProps) => (
                   <SidebarMenuItem key={item.url}>
                     <SidebarMenuButton asChild>
-                      <NavLink to={item.url}>{t(item.title)}</NavLink>
+                      {/*todo: navlink*/}
+                      <Link href={item.url}>{t(item.title)}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
