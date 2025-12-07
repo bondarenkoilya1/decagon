@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { roundTo } from "./roundTo";
+import { roundTo } from "src/shared";
 
 describe("Round to Fixed Decimal", () => {
   it("Valid case with 2 decimals", () => expect(roundTo(12.5472, 2)).toEqual(12.55));

@@ -3,8 +3,7 @@ import { type VariantProps } from "class-variance-authority";
 
 import { Slot } from "@radix-ui/react-slot";
 
-import { buttonGroupVariants, cn } from "src/shared";
-import { Separator } from "src/shared";
+import { buttonGroupVariants, cn, Separator } from "src/shared";
 
 export const ButtonGroup: FC<ComponentProps<"div"> & VariantProps<typeof buttonGroupVariants>> = ({
   className,

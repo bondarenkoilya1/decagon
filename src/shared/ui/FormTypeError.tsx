@@ -1,8 +1,8 @@
+import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { TriangleAlert } from "lucide-react";
-import type { JSXElement } from "src/shared";
 
-export const FormTypeError = (): JSXElement => {
+export const FormTypeError = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (

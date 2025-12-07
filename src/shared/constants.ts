@@ -1,3 +1,5 @@
+import type { CoordinatesType, NavigationSectionProps } from "src/shared/types";
+
 export const CONTAINER_SIDE_LENGTH = 250;
 
 export const SIDEBAR_NAVIGATION_ITEMS: NavigationSectionProps[] = [
