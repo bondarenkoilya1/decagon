@@ -1,31 +1,54 @@
+import type { JSX } from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
+import { AppSidebar, LanguageSelect } from "src/widgets";
+
+import {
+  SIDEBAR_NAVIGATION_ITEMS,
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+  Toaster,
+  WEBSITE_NAME
+} from "src/shared";
 
 import "../globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"]
-});
 
 export const metadata: Metadata = {
   title: "Decagon",
   description: "Math calculator with visualisation"
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): JSX.Element => {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body>
+        <SidebarProvider>
+          <div className="flex min-h-screen w-full">
+            {WEBSITE_NAME && (
+              <AppSidebar title={WEBSITE_NAME} components={SIDEBAR_NAVIGATION_ITEMS} />
+            )}
+
+            <SidebarInset className="flex-1">
+              <header className="flex h-16 items-center gap-2 border-b px-4 justify-between">
+                <SidebarTrigger />
+                <LanguageSelect />
+              </header>
+
+              <main className="flex-1 p-6">
+                {children}
+                <Toaster />
+              </main>
+            </SidebarInset>
+          </div>
+        </SidebarProvider>
+      </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

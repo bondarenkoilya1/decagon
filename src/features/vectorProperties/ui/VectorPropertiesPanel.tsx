@@ -1,6 +1,5 @@
 import type { FC } from "react";
-
-import { useVectorPlacement } from "src/app";
+import { useVectorPlacement } from "src/store";
 
 import { CopyVectorPlacementButton, useVectorProperties } from "src/features";
 
