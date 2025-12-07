@@ -1,0 +1,11 @@
+export * from "./vectorNormalize";
+export * from "./vectorRotate";
+export * from "./vectorInvert";
+export * from "./vectorScale";
+export * from "./vectorProperties";
+export * from "./vectorCreate";
+export * from "./vectorCopyPlacement";
+export * from "./vectorPairAdd";
+
+export * from "./matrixCreate";
+export * from "./matrixIndexingModeToggle";
