@@ -1,5 +1,6 @@
 import type { JSX } from "react";
 import type { Metadata } from "next";
+import type { Children } from "src/shared";
 
 import { AppSidebar, LanguageSelect } from "src/widgets";
 
@@ -19,11 +20,7 @@ export const metadata: Metadata = {
   description: "Math calculator with visualisation"
 };
 
-const RootLayout = ({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>): JSX.Element => {
+const RootLayout = ({ children }: Readonly<Children>): JSX.Element => {
   return (
     <html lang="en">
       <body>
