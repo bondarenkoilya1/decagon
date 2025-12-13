@@ -1,4 +1,4 @@
-import type { MatrixType } from "src/shared";
+import type { MatrixType } from "src/entities";
 
 const fillEmptyFields = (matrix: MatrixType): MatrixType =>
   matrix.map((row) =>

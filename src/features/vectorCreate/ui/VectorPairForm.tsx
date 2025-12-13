@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import type { UseFormRegister } from "react-hook-form";
-import type { AxisType, VectorNumberType, VectorPositionType } from "src/shared";
-import type { VectorPairFormValues } from "src/shared";
+import type { AxisType, VectorNumberType, VectorPositionType } from "src/entities";
 
 import { useVectorPairForm } from "src/features";
 

@@ -1,4 +1,5 @@
-import type { AxisType, MultiplicationOperationType } from "src/shared";
+import type { AxisType } from "src/entities";
+import type { MultiplicationOperationType } from "src/shared";
 
 export type ScaleButtonSetProps = {
   axis: AxisType;

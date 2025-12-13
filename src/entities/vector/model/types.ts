@@ -1,3 +1,6 @@
+export type VectorNumberType = 1 | 2;
+export type VectorPositionType = "Start" | "End";
+
 export type CoordinatesType = {
   xStart: number;
   xEnd: number;

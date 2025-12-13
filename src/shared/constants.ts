@@ -1,4 +1,6 @@
-import type { CoordinatesType, NavigationSectionProps } from "src/shared/types";
+import type { CoordinatesType } from "src/entities";
+
+import type { NavigationSectionProps } from "src/shared/types";
 
 export const CONTAINER_SIDE_LENGTH = 250;
 

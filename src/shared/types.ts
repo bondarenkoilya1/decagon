@@ -16,3 +16,14 @@ export type MultiplicationOperationType = "multiply" | "divide";
 export type AddOperationType = "increase" | "decrease";
 export type IndexingType = "zero" | "one";
 export type FormType = "single" | "pair";
+
+// Navigation
+export type NavigationItemProps = {
+  title: string;
+  url: string;
+};
+
+export type NavigationSectionProps = {
+  title: string;
+  items: NavigationItemProps[];
+};

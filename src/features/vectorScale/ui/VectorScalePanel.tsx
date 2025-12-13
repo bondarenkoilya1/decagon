@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
-import type { AxisType } from "src/shared";
+import type { AxisType } from "src/entities";
 
 import { ScaleButtonSet, useVectorLength, useVectorScale } from "src/features";
 

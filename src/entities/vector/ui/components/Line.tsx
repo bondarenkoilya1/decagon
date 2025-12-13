@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { CoordinatesType } from "src/shared";
+import type { CoordinatesType } from "src/entities";
 
 type LineProps = CoordinatesType & {
   markerId: string;

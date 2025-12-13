@@ -1,4 +1,4 @@
-import type { AxisType } from "src/shared";
+import type { AxisType } from "src/entities";
 
 import { useVectorActions, useVectorPlacement } from "src/entities";
 

@@ -1,4 +1,4 @@
-import type { CoordinatesType } from "src/shared";
+import type { CoordinatesType } from "src/entities";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { act, renderHook } from "@testing-library/react";

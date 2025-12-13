@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import type { IndexingType, MatrixType } from "src/shared";
+import type { MatrixType } from "src/entities";
+import type { IndexingType } from "src/shared";
 
 import { MatrixInputCell } from "src/entities";
 

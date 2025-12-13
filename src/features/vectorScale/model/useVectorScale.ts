@@ -1,7 +1,7 @@
 import type { UseFormReturn } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import type { AxisType, MultiplicationOperationType } from "src/shared";
-import type { VectorScaleValues } from "src/shared";
+import type { AxisType } from "src/entities";
+import type { MultiplicationOperationType, VectorScaleValues } from "src/shared";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 

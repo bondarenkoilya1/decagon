@@ -1,4 +1,4 @@
-import type { MatrixType } from "src/shared";
+import type { MatrixType } from "src/entities";
 
 export const transpose = (matrix: MatrixType): MatrixType => {
   if (matrix.length === 0 || matrix[0].length === 0) {

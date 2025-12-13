@@ -1,4 +1,4 @@
-import type { CoordinatesType } from "src/shared";
+import type { CoordinatesType } from "src/entities";
 
 import { initialVectorPlacements } from "src/shared";
 

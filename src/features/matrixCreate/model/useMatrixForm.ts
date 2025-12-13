@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from "react";
-import type { AddOperationType, MatrixType } from "src/shared";
+import type { MatrixType } from "src/entities";
+import type { AddOperationType } from "src/shared";
 
 import { MAX_ROWS_COUNT } from "src/shared";
 
