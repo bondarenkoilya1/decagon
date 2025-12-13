@@ -2,13 +2,12 @@ import type React from "react";
 import { useEffect } from "react";
 import type { UseFormReturn } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import type { VectorPairFormValues } from "src/shared";
+import type { VectorPairFormValues } from "src/entities";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useVectorPairActions, useVectorPairPlacement } from "src/entities";
+import { useVectorPairActions, useVectorPairPlacement, VectorPairFormSchema } from "src/entities";
 
-import { VectorPairFormSchema } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
 
 type UseVectorPairFormType = UseFormReturn<VectorPairFormValues> & {

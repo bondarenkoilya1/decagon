@@ -1,13 +1,12 @@
 import type { UseFormReturn } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import type { AxisType } from "src/entities";
-import type { MultiplicationOperationType, VectorScaleValues } from "src/shared";
+import type { AxisType, VectorScaleValues } from "src/entities";
+import type { MultiplicationOperationType } from "src/shared";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { VectorScaleSchema } from "src/entities";
 import { useVectorActions, useVectorPlacement } from "src/entities";
-
-import { VectorScaleSchema } from "src/shared";
 
 type UseVectorMultiplyType = UseFormReturn<VectorScaleValues> & {
   xMultiplierValue: unknown;

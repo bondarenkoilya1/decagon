@@ -2,12 +2,12 @@ import type React from "react";
 import { useEffect } from "react";
 import type { UseFormReturn } from "react-hook-form";
 import { type SubmitHandler, useForm } from "react-hook-form";
+import type { VectorFormValues } from "src/entities";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useVectorActions, useVectorPlacement } from "src/entities";
+import { useVectorActions, useVectorPlacement, VectorFormSchema } from "src/entities";
 
-import { VectorFormSchema, type VectorFormValues } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
 
 type UseVectorFormType = UseFormReturn<VectorFormValues> & {
