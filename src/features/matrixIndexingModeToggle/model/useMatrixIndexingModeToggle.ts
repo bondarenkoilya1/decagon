@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { usePremiumFeaturesActions } from "src/app";
+import { usePremiumFeaturesActions } from "src/entities";
 
 type MatrixIndexingModeToggleType = {
   toggleMode: (isChecked: boolean) => void;

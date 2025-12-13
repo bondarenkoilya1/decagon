@@ -4,7 +4,7 @@ import type { VectorRotateValues } from "src/shared";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useVectorActions, useVectorPlacement } from "src/app";
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 import { VectorRotateSchema } from "src/shared";
 import { transferDegreeToRadian } from "src/shared/lib/math";

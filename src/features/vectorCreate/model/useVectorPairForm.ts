@@ -6,7 +6,7 @@ import type { VectorPairFormValues } from "src/shared";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useVectorPairActions, useVectorPairPlacement } from "src/app";
+import { useVectorPairActions, useVectorPairPlacement } from "src/entities";
 
 import { VectorPairFormSchema } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";

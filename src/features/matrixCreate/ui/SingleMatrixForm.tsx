@@ -1,11 +1,9 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useMatrixIndexingMode } from "src/app";
-
 import { useMatrixForm } from "src/features";
 
-import { MatrixCellGroup } from "src/entities";
+import { MatrixCellGroup, useMatrixIndexingMode } from "src/entities";
 
 import { BadgeGroup, Panel, Separator, Typography } from "src/shared";
 

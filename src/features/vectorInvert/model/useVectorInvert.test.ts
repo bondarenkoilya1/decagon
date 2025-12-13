@@ -3,9 +3,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { act, renderHook } from "@testing-library/react";
 
-import { useVectorActions, useVectorPlacement } from "src/app";
-
 import { useVectorInvert } from "src/features";
+
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 vi.mock("src/app", () => ({
   useVectorPlacement: vi.fn(),

@@ -5,7 +5,7 @@ import type { VectorScaleValues } from "src/shared";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useVectorActions, useVectorPlacement } from "src/app";
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 import { VectorScaleSchema } from "src/shared";
 

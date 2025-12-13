@@ -5,7 +5,7 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useVectorActions, useVectorPlacement } from "src/app";
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 import { VectorFormSchema, type VectorFormValues } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";

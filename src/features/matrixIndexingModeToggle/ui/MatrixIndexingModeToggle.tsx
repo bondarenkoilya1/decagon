@@ -2,9 +2,9 @@ import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Info } from "lucide-react";
 
-import { useMatrixIndexingMode } from "src/app";
-
 import { useMatrixIndexingModeToggle } from "src/features";
+
+import { useMatrixIndexingMode } from "src/entities";
 
 import { Label, Switch } from "src/shared";
 

@@ -1,6 +1,6 @@
-import { useVectorActions, useVectorPlacement } from "src/app";
-
 import { useVectorLength } from "src/features";
+
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 type UseVectorNormalizeType = {
   normalize: () => void;

@@ -1,6 +1,6 @@
 import type { AxisType } from "src/shared";
 
-import { useVectorActions, useVectorPlacement } from "src/app";
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 type UseVectorInvertType = {
   invertAxis: (axis: AxisType) => void;

@@ -11,9 +11,9 @@ vi.mock("src/shared/lib/math");
 
 import { useForm } from "react-hook-form";
 
-import { useVectorActions, useVectorPlacement } from "src/app";
-
 import { useVectorScale } from "src/features";
+
+import { useVectorActions, useVectorPlacement } from "src/entities";
 
 import { roundTo } from "src/shared/lib/math";
 

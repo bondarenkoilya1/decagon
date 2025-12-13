@@ -1,9 +1,8 @@
 import type { FC } from "react";
-import { useVectorPlacement } from "src/store";
 
 import { CopyVectorPlacementButton, useVectorProperties } from "src/features";
 
-import { CoordinatesDisplay } from "src/entities";
+import { CoordinatesDisplay, useVectorPlacement } from "src/entities";
 
 import { Panel, Typography } from "src/shared";
 

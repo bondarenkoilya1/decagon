@@ -2,9 +2,7 @@ import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
-import { useSubscriberState } from "src/app";
-
-import { copyVectorPlacement } from "src/entities";
+import { copyVectorPlacement, useSubscriberState } from "src/entities";
 
 import { Button } from "src/shared";
 
