@@ -1,5 +1,6 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { useVectorForm } from "src/features/vectorCreate/model/useVectorForm";
 
@@ -13,7 +14,7 @@ type InputsType = {
 
 export const SingleVectorForm: FC = () => {
   const { register, onSubmit } = useVectorForm();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const inputs: InputsType[][] = [
     [

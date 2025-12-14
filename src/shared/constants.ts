@@ -8,23 +8,23 @@ export const SIDEBAR_NAVIGATION_ITEMS: NavigationSectionProps[] = [
   {
     title: "vectors",
     items: [
-      { title: "vectors.single", url: "" },
-      { title: "vectors.two", url: "two-vectors" }
+      { title: "vectorsItem.single", url: "/" },
+      { title: "vectorsItem.two", url: "two-vectors" }
     ]
   },
   {
     title: "matrices",
     items: [
-      { title: "matrices.single", url: "matrix" },
-      { title: "matrices.two", url: "two-matrices" }
+      { title: "matricesItem.single", url: "matrix" },
+      { title: "matricesItem.two", url: "two-matrices" }
     ]
   },
   {
     title: "equations",
     items: [
-      { title: "equations.linear", url: "linear" },
-      { title: "equations.quadratic", url: "quadratic" },
-      { title: "equations.cubic", url: "cubic" }
+      { title: "equationsItem.linear", url: "linear" },
+      { title: "equationsItem.quadratic", url: "quadratic" },
+      { title: "equationsItem.cubic", url: "cubic" }
     ]
   }
 ];

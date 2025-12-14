@@ -1,3 +1,4 @@
+"use client";
 import { type FormEvent, useEffect, useState } from "react";
 import type { MatrixType } from "src/entities";
 import type { AddOperationType } from "src/shared";

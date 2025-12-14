@@ -1,5 +1,6 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { useMatrixForm } from "src/features";
 
@@ -8,7 +9,7 @@ import { MatrixCellGroup, useMatrixIndexingMode } from "src/entities";
 import { BadgeGroup, Panel, Separator, Typography } from "src/shared";
 
 export const SingleMatrixForm: FC = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const matrixIndexingMode = useMatrixIndexingMode();
   const {
     rowsCount,

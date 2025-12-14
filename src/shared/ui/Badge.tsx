@@ -1,3 +1,4 @@
+"use client";
 import { type ButtonHTMLAttributes, type FC } from "react";
 
 import { cn } from "src/shared";

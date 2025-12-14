@@ -1,8 +1,7 @@
+"use client";
 import { useEffect, useState } from "react";
 
-import { useVectorPlacement } from "src/app";
-
-import { getVectorLength } from "src/entities";
+import { getVectorLength, useVectorPlacement } from "src/entities";
 
 import { getAbsoluteDifference, roundTo } from "src/shared/lib/math";
 

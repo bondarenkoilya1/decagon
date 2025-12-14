@@ -1,9 +1,9 @@
 import type { JSX } from "react";
-import { useTranslation } from "react-i18next";
 import { TriangleAlert } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export const FormTypeError = (): JSX.Element => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <p className="flex">

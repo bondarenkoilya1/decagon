@@ -1,0 +1,86 @@
+{
+  "main_languages": "Main languages",
+  "language_english": "English",
+  "language_russian": "Russian",
+
+  "form": {
+    "type": {
+      "error": "You should select form type. Then it will be rendered"
+    }
+  },
+
+  "vectors": "Vectors",
+  "vectorsItem": {
+    "single": "Single Vector",
+    "two": "Two Vectors"
+  },
+  "vectorsTitle": {
+    "single": "Visualize single vector operations",
+    "two": "Visualize two vectors operations"
+  },
+
+  "matrix": {
+    "form": {
+      "create": "Create matrix",
+      "hint": "You can only create a single matrix at one time. Feel free to modify it"
+    },
+    "indexing": "Zero-based indexing",
+    "indexingTooltip": "When enabled, matrix cell indices start from 0. When disabled, they start from 1"
+  },
+
+  "matrices": "Matrices",
+  "matricesItem": {
+    "single": "Single matrix",
+    "two": "Two matrices"
+  },
+  "matricesTitle": {
+    "single": "Visualize single <span>[</span>matrix<span>]</span> operations"
+  },
+
+  "equations": "Equations",
+  "equationsItem": {
+    "linear": "Linear equations",
+    "quadratic": "Quadratic equations",
+    "cubic": "Cubic equations"
+  },
+
+  "singleForm": {
+    "xStart": "X start coordinate:",
+    "xEnd": "X end coordinate:",
+    "yStart": "Y start coordinate:",
+    "yEnd": "Y end coordinate:",
+    "submit": "Create vector",
+    "hint": "You can create only a single vector at one time. Feel free to modify it"
+  },
+
+  "copyCoordinates": "Copy vector coordinates",
+
+  "normalize": "Normalize",
+  "normalizeTitle": "Normalize your vector",
+
+  "invert": {
+    "completely": "Completely"
+  },
+  "invertTitle": "Invert your vector",
+
+  "rotate": "Rotate",
+  "rotateTitle": "Rotate your vector",
+
+  "vector": {
+    "length": {
+      "title": "Your vector length is",
+      "projection": {
+        "x": "Length of the projection on X-axis",
+        "y": "Length of the projection on Y-axis"
+      },
+      "label": {
+        "x": "X length",
+        "y": "Y length"
+      }
+    }
+  },
+
+  "multiply": "Multiply",
+  "divide": "Divide",
+  "zero": "Zero"
+}

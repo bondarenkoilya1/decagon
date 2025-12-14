@@ -1,5 +1,6 @@
+"use client";
 import type { FC, FormEvent } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { useVectorRotate } from "src/features";
 
@@ -10,7 +11,7 @@ const degreeOptions = [30, 45, 60, 90];
 
 export const VectorRotatePanel: FC = () => {
   const { register, isButtonDisabled, rotateVector } = useVectorRotate();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const rotate = (event: FormEvent): void => {
     event.preventDefault();

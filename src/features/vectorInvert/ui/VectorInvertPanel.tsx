@@ -1,6 +1,7 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
 import type { VariantProps } from "class-variance-authority";
+import { useTranslations } from "next-intl";
 import type { buttonVariants } from "src/shared";
 
 import { useVectorInvert } from "src/features/vectorInvert";
@@ -14,7 +15,7 @@ type ButtonsType = VariantProps<typeof buttonVariants> & {
 
 export const VectorInvertPanel: FC = () => {
   const { invertAxis, invertVector } = useVectorInvert();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const buttons: ButtonsType[] = [
     { text: "X", variant: "outline", onClick: () => invertAxis("x") },

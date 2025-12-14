@@ -1,6 +1,7 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
 import { Info } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { useMatrixIndexingModeToggle } from "src/features";
 
@@ -9,7 +10,7 @@ import { useMatrixIndexingMode } from "src/entities";
 import { Label, Switch } from "src/shared";
 
 export const MatrixIndexingModeToggle: FC = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const mode = useMatrixIndexingMode();
   const { toggleMode } = useMatrixIndexingModeToggle();
 

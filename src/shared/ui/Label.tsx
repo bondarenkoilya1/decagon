@@ -1,3 +1,4 @@
+"use client";
 import type { ComponentProps, FC } from "react";
 
 import * as LabelPrimitive from "@radix-ui/react-label";

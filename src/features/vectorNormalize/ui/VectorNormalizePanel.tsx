@@ -1,5 +1,6 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { useVectorNormalize } from "src/features";
 
@@ -7,7 +8,7 @@ import { Button, Typography } from "src/shared";
 
 export const VectorNormalizePanel: FC = () => {
   const { normalize, isButtonDisabled } = useVectorNormalize();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <div className="flex items-center">

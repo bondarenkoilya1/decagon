@@ -1,5 +1,6 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import type { AxisType } from "src/entities";
 
 import { ScaleButtonSet, useVectorLength, useVectorScale } from "src/features";
@@ -22,7 +23,7 @@ export const VectorScalePanel: FC<{ className?: string }> = ({ className }) => {
   const { register, xMultiplierValue, yMultiplierValue, scaleAxis } = useVectorScale();
   const { vectorLength, xProjectionLength, yProjectionLength } = useVectorLength();
 
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const elements: ElementsType[] = [
     {

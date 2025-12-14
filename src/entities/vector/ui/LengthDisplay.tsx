@@ -1,5 +1,6 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { Typography } from "src/shared";
 
@@ -14,7 +15,7 @@ export const LengthDisplay: FC<VectorLengthProps> = ({
   xProjectionLength,
   yProjectionLength
 }) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <>

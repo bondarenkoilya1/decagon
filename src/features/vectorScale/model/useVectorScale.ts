@@ -1,3 +1,4 @@
+"use client";
 import type { UseFormReturn } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import type { AxisType, VectorScaleValues } from "src/entities";

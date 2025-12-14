@@ -1,4 +1,6 @@
+"use client";
 import type { JSX } from "react";
+import { useTranslations } from "next-intl";
 
 import { CopyVectorPlacementButton, VectorCreateForm } from "src/features";
 
@@ -9,13 +11,13 @@ import {
   VectorContainer
 } from "src/entities";
 
-import { Container } from "src/shared";
+import { Container, Typography } from "src/shared";
 
 const vectorStyles = "absolute inset-0 w-full h-full";
 
 const TwoVectorsPage = (): JSX.Element => {
   const vectorPlacement = useVectorPairPlacement();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container>

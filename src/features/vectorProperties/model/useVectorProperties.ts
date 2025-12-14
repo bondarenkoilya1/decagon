@@ -1,4 +1,5 @@
-import { useVectorPlacement } from "src/app";
+"use client";
+import { useVectorPlacement } from "src/entities";
 
 import { roundTo } from "src/shared/lib/math";
 

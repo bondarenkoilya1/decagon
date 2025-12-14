@@ -1,9 +1,10 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
-
-import { useVectorActions } from "src/app";
+import { useTranslations } from "next-intl";
 
 import type { ScaleButtonSetProps } from "src/features/vectorScale/ui/ScaleButtonSet/types";
+
+import { useVectorActions } from "src/entities";
 
 import { Button } from "src/shared";
 
@@ -14,7 +15,7 @@ export const ScaleButtonSet: FC<ScaleButtonSetProps> = ({
   onScale
 }) => {
   const { resetXVector, resetYVector } = useVectorActions();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const resetVector = axis === "x" ? resetXVector : resetYVector;
 

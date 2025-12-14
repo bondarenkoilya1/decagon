@@ -1,5 +1,6 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
 import { copyVectorPlacement, useSubscriberState } from "src/entities";
@@ -12,7 +13,7 @@ export const CopyVectorPlacementButton: FC<CopyVectorPlacementButtonProps> = ({
   vectorPlacement,
   className
 }) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const isSubscriber = useSubscriberState();
 
   const copy = (): void => {

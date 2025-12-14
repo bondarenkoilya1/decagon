@@ -1,3 +1,4 @@
+"use client";
 import type { ComponentProps, FC } from "react";
 import { type VariantProps } from "class-variance-authority";
 

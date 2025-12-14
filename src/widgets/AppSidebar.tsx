@@ -1,7 +1,8 @@
+"use client";
 import type { FC } from "react";
-import { useTranslation } from "react-i18next";
 import { Boxes } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { NavigationItemProps, NavigationSectionProps } from "src/shared";
 
 import {
@@ -22,7 +23,7 @@ type SidebarProps = {
 };
 
 export const AppSidebar: FC<SidebarProps> = ({ title, components }) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Sidebar>

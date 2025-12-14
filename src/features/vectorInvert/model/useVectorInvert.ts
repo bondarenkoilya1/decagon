@@ -1,3 +1,4 @@
+"use client";
 import type { AxisType } from "src/entities";
 
 import { useVectorActions, useVectorPlacement } from "src/entities";

@@ -1,3 +1,4 @@
+"use client";
 import type { CSSProperties, FC } from "react";
 import { useTheme } from "next-themes";
 import type { ToasterProps } from "sonner";
