@@ -7,5 +7,5 @@ export * from "./vectorCreate";
 export * from "./vectorCopyPlacement";
 export * from "./vectorPairAdd";
 
-export * from "./matrixCreate";
+export * from "./matrix-create";
 export * from "./matrixIndexingModeToggle";
