@@ -1,8 +1,10 @@
 "use client";
-import type { FC } from "react";
+import type { JSX } from "react";
 import type { AddOperationType } from "src/shared";
 
-import { Badge, Button, MAX_ROWS_COUNT } from "src/shared";
+import { StepButton } from "src/entities";
+
+import { Badge, MAX_ROWS_COUNT } from "src/shared";
 
 type BadgeGroupProps = {
   label: string;
@@ -11,29 +13,24 @@ type BadgeGroupProps = {
   onStep: (operation: AddOperationType) => void;
 };
 
-type StepButtonProps = { operation: AddOperationType; disabled: boolean };
-
-export const BadgeGroup: FC<BadgeGroupProps> = ({ label, onSelect, selected, onStep }) => {
+export const BadgeGroup = ({ label, onSelect, selected, onStep }: BadgeGroupProps): JSX.Element => {
   const values = Array.from({ length: MAX_ROWS_COUNT }, (_, i) => i + 1);
-
-  const StepButton: FC<StepButtonProps> = ({ operation, disabled }) => (
-    <Button
-      variant="outline"
-      className="w-6 h-6"
-      onClick={() => onStep(operation)}
-      disabled={disabled}>
-      {operation === "increase" ? "+" : "-"}
-    </Button>
-  );
 
   return (
     <div className="my-4">
       <div className="flex items-center mb-2">
-        <StepButton operation="decrease" disabled={selected <= 1} />
+        <StepButton
+          operation="decrease"
+          disabled={selected <= 1}
+          onClick={() => onStep("decrease")}
+        />
         <span className="font-medium mx-3">{label}</span>
-        <StepButton operation="increase" disabled={selected >= MAX_ROWS_COUNT} />
+        <StepButton
+          operation="increase"
+          disabled={selected >= MAX_ROWS_COUNT}
+          onClick={() => onStep("increase")}
+        />
       </div>
-
       <div className="grid grid-cols-10 gap-2">
         {values.map((value) => (
           <Badge

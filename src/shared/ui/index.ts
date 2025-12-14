@@ -16,4 +16,3 @@ export * from "./Select";
 export * from "./FormTypeError";
 export * from "./Switch";
 export * from "./Badge";
-export * from "./BadgeGroup";
