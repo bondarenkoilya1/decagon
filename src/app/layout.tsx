@@ -3,13 +3,12 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import type { Children } from "src/shared";
 
-import { AppSidebar, LanguageSelect } from "src/widgets";
+import { AppSidebar, Header } from "src/widgets";
 
 import {
   SIDEBAR_NAVIGATION_ITEMS,
   SidebarInset,
   SidebarProvider,
-  SidebarTrigger,
   Toaster,
   WEBSITE_NAME
 } from "src/shared";
@@ -33,11 +32,7 @@ const RootLayout = ({ children }: Readonly<Children>): JSX.Element => {
               )}
 
               <SidebarInset className="flex-1">
-                <header className="flex h-16 items-center gap-2 border-b px-4 justify-between">
-                  <SidebarTrigger />
-                  <LanguageSelect />
-                </header>
-
+                <Header />
                 <main className="flex-1 p-6">
                   {children}
                   <Toaster />
