@@ -1,2 +1,3 @@
-export * from "./AppSidebar";
-export * from "./LanguageSelect";
+export * from "./app-sidebar";
+export * from "./language-select";
+export * from "./layout";
