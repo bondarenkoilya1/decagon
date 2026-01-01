@@ -1,19 +1,24 @@
 "use client";
-import type { FC } from "react";
+import type { JSX } from "react";
 import { useTranslations } from "next-intl";
 
-import type { ScaleButtonSetProps } from "src/features/vectorScale/ui/ScaleButtonSet/types";
+import { type AxisType, useVectorActions } from "src/entities";
 
-import { useVectorActions } from "src/entities";
+import { Button, type MultiplicationOperationType } from "src/shared";
 
-import { Button } from "src/shared";
+export type ScaleButtonSetProps = {
+  axis: AxisType;
+  multiplierValue: unknown;
+  axisProjectionLength: number;
+  onScale: (axis: AxisType, operation: MultiplicationOperationType) => void;
+};
 
-export const ScaleButtonSet: FC<ScaleButtonSetProps> = ({
+export const ScaleButtonSet = ({
   axis,
   multiplierValue,
   axisProjectionLength,
   onScale
-}) => {
+}: ScaleButtonSetProps): JSX.Element => {
   const { resetXVector, resetYVector } = useVectorActions();
   const t = useTranslations();
 
@@ -33,7 +38,7 @@ export const ScaleButtonSet: FC<ScaleButtonSetProps> = ({
           onClick={onClick}
           className="w-1.5/6"
           variant="outline"
-          key={crypto.randomUUID()}>
+          key={text}>
           {t(text)}
         </Button>
       ))}
