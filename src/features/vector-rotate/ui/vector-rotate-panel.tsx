@@ -1,5 +1,6 @@
 "use client";
 import type { FC, FormEvent } from "react";
+import React from "react";
 import { useTranslations } from "next-intl";
 
 import { useVectorRotate } from "src/features";
@@ -13,24 +14,26 @@ export const VectorRotatePanel: FC = () => {
   const { register, isButtonDisabled, rotateVector } = useVectorRotate();
   const t = useTranslations();
 
-  const rotate = (event: FormEvent): void => {
+  const handleRotate = (event: FormEvent): void => {
     event.preventDefault();
     rotateVector();
   };
 
+  const handleRotateOnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (event.key === "Enter") {
+      handleRotate(event);
+    }
+  };
+
   return (
-    <form onSubmit={rotate}>
+    <form onSubmit={handleRotate}>
       <div className="flex items-center">
         <Typography.H5 className="mr-4">{t("rotate.title")}:</Typography.H5>
         <Input
           {...register("degrees", { setValueAs: safeParseNumber })}
           type="number"
           placeholder="142&deg;"
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              rotate(event);
-            }
-          }}
+          onKeyDown={handleRotateOnKeyDown}
           className="w-fit"
         />
       </div>
