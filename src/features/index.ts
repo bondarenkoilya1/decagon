@@ -2,7 +2,7 @@ export * from "./vectorNormalize";
 export * from "./vector-rotate";
 export * from "./vectorInvert";
 export * from "./vector-scale";
-export * from "./vectorProperties";
+export * from "./vector-properties";
 export * from "./vectorCreate";
 export * from "./vectorCopyPlacement";
 export * from "./vectorPairAdd";
