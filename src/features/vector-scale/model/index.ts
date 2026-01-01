@@ -1,2 +1,2 @@
-export * from "./useVectorScale";
-export * from "./useVectorLength";
+export * from "./use-vector-scale";
+export * from "./use-vector-length";
