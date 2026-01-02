@@ -1,4 +1,4 @@
-export * from "./vectorNormalize";
+export * from "./vector-normalize";
 export * from "./vector-rotate";
 export * from "./vectorInvert";
 export * from "./vector-scale";
