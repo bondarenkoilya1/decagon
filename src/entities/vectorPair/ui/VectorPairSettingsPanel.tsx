@@ -1,16 +1,16 @@
 import type { FC } from "react";
 import type { ClassNameProp } from "src/shared";
 
-import { AddPanel, SubtractPanel } from "src/features";
+import { AddPanel } from "src/features";
 
 import { Panel, Separator } from "src/shared";
 
 export const TwoVectorsSettingsPanel: FC<ClassNameProp> = ({ className }) => {
   return (
     <Panel className={className}>
-      <AddPanel />
+      <AddPanel operation="increase" />
       <Separator className="my-4" />
-      <SubtractPanel />
+      <AddPanel operation="decrease" />
     </Panel>
   );
 };

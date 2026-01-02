@@ -1,5 +1,5 @@
 "use client";
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useState } from "react";
 import type { MatrixType } from "src/entities";
 import type { AddOperationType } from "src/shared";
 
@@ -23,29 +23,24 @@ type UseMatrixFormType = {
 export const createEmptyMatrix = (rowsCount: number, columnsCount: number): MatrixType =>
   Array.from({ length: rowsCount }, () => Array(columnsCount).fill(0));
 
-// Math.max returns the number if it's >= 0, otherwise returns 0;
-// Math.min returns the number if it's <= MAX_ROWS_COUNT, otherwise returns MAX_ROWS_COUNT
 const clamp = (number: number): number => Math.min(Math.max(number, 0), MAX_ROWS_COUNT);
+
+const getStepValue = (operation: AddOperationType): number => (operation === "increase" ? 1 : -1);
 
 export const useMatrixForm = (): UseMatrixFormType => {
   const [rowsCount, setRowsCount] = useState(3);
   const [columnsCount, setColumnsCount] = useState(3);
-  const [matrixSize, setMatrixSize] = useState<MatrixType>(
-    createEmptyMatrix(rowsCount, columnsCount)
-  );
 
-  useEffect(() => {
-    setMatrixSize(createEmptyMatrix(rowsCount, columnsCount));
-  }, [rowsCount, columnsCount]);
+  const matrixSize = createEmptyMatrix(rowsCount, columnsCount);
 
   const setRows = (number: number): void => setRowsCount(clamp(number));
   const setColumns = (number: number): void => setColumnsCount(clamp(number));
 
   const stepRows = (operation: AddOperationType): void =>
-    setRowsCount((prev) => clamp(prev + (operation === "increase" ? 1 : -1)));
+    setRowsCount((prev) => clamp(prev + getStepValue(operation)));
 
   const stepColumns = (operation: AddOperationType): void =>
-    setColumnsCount((prev) => clamp(prev + (operation === "increase" ? 1 : -1)));
+    setColumnsCount((prev) => clamp(prev + getStepValue(operation)));
 
   const recreateMatrix = (
     event: FormEvent<HTMLFormElement>,
