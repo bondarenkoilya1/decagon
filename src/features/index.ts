@@ -1,6 +1,6 @@
 export * from "./vector-normalize";
 export * from "./vector-rotate";
-export * from "./vectorInvert";
+export * from "./vector-invert";
 export * from "./vector-scale";
 export * from "./vector-properties";
 export * from "./vectorCreate";

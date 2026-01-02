@@ -4,7 +4,7 @@ import type { VariantProps } from "class-variance-authority";
 import { useTranslations } from "next-intl";
 import type { buttonVariants } from "src/shared";
 
-import { useVectorInvert } from "src/features/vectorInvert";
+import { useVectorInvert } from "src/features/vector-invert";
 
 import { Button, ButtonGroup, Typography } from "src/shared";
 
