@@ -1,31 +1,27 @@
 "use client";
-import type { FC } from "react";
+import type { JSX } from "react";
 import { useTranslations } from "next-intl";
+import type { InputsType } from "src/features";
 
 import { useVectorForm } from "src/features";
+import { FormInputPair } from "src/features/vector-create/ui/form-input";
 
-import { Button, Input, Label, Panel, Typography } from "src/shared";
-import { safeParseNumber } from "src/shared/lib/parse";
+import { Button, Panel, Typography } from "src/shared";
 
-type InputsType = {
-  name: "xStart" | "xEnd" | "yStart" | "yEnd";
-  label: string;
-};
+const inputs: InputsType[][] = [
+  [
+    { name: "xStart", label: "singleForm.xStart" },
+    { name: "xEnd", label: "singleForm.xEnd" }
+  ],
+  [
+    { name: "yStart", label: "singleForm.yStart" },
+    { name: "yEnd", label: "singleForm.yEnd" }
+  ]
+];
 
-export const VectorSingleForm: FC = () => {
+export const VectorSingleForm = (): JSX.Element => {
   const { register, onSubmit } = useVectorForm();
   const t = useTranslations();
-
-  const inputs: InputsType[][] = [
-    [
-      { name: "xStart", label: "singleForm.xStart" },
-      { name: "xEnd", label: "singleForm.xEnd" }
-    ],
-    [
-      { name: "yStart", label: "singleForm.yStart" },
-      { name: "yEnd", label: "singleForm.yEnd" }
-    ]
-  ];
 
   return (
     <Panel
@@ -34,18 +30,7 @@ export const VectorSingleForm: FC = () => {
       onSubmit={onSubmit}>
       <ul>
         {inputs.map((inputPair) => (
-          <li className="flex justify-between [&:not(:last-child)]:mb-4" key={crypto.randomUUID()}>
-            {inputPair.map(({ name, label }) => (
-              <div className="grid max-w-sm items-center gap-1" key={crypto.randomUUID()}>
-                <Label htmlFor={name}>{t(label)}</Label>
-                <Input
-                  {...register(name, { setValueAs: safeParseNumber })}
-                  type="number"
-                  id={name}
-                />
-              </div>
-            ))}
-          </li>
+          <FormInputPair key={crypto.randomUUID()} inputPair={inputPair} register={register} />
         ))}
       </ul>
       <Button type="submit" className="w-full mt-4">
