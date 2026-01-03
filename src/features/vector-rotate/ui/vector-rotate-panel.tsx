@@ -8,7 +8,7 @@ import { useVectorRotate } from "src/features";
 import { Button, ButtonGroup, Input, Typography } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
 
-const degreeOptions = [30, 45, 60, 90];
+const suggestedDegrees = [30, 45, 60, 90];
 
 export const VectorRotatePanel: FC = () => {
   const { register, isButtonDisabled, rotateVector } = useVectorRotate();
@@ -39,9 +39,12 @@ export const VectorRotatePanel: FC = () => {
       </div>
 
       <ButtonGroup className="mt-4 w-full">
-        {degreeOptions.map((option) => (
-          // todo: add functionality
-          <Button variant="outline" key={crypto.randomUUID()} className="w-1/6" disabled>
+        {suggestedDegrees.map((option) => (
+          <Button
+            variant="outline"
+            key={option}
+            className="w-1/6"
+            onClick={() => rotateVector(option)}>
             {option}&deg;
           </Button>
         ))}
