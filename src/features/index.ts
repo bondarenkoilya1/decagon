@@ -8,4 +8,4 @@ export * from "./vectorCopyPlacement";
 export * from "./vector-pair-add";
 
 export * from "./matrix-create";
-export * from "./matrixIndexingModeToggle";
+export * from "./matrix-indexing-mode-toggle";
