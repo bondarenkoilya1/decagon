@@ -2,7 +2,7 @@
 import type { FC } from "react";
 import { useTranslations } from "next-intl";
 
-import { useVectorForm } from "src/features/vectorCreate/model/useVectorForm";
+import { useVectorForm } from "src/features";
 
 import { Button, Input, Label, Panel, Typography } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
@@ -12,7 +12,7 @@ type InputsType = {
   label: string;
 };
 
-export const SingleVectorForm: FC = () => {
+export const VectorSingleForm: FC = () => {
   const { register, onSubmit } = useVectorForm();
   const t = useTranslations();
 
