@@ -1,8 +1,9 @@
 import type { FC } from "react";
+import type { CoordinatesType } from "src/entities";
 
 import { Arrow, Line } from "src/entities";
 
-import { type ClassNameProp, cn, CONTAINER_SIDE_LENGTH, type CoordinatesType } from "src/shared";
+import { type ClassNameProp, cn, CONTAINER_SIDE_LENGTH } from "src/shared";
 
 type VectorProps = ClassNameProp & { placement: CoordinatesType; markerId?: string };
 
