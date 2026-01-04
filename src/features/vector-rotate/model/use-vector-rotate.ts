@@ -10,11 +10,10 @@ import { useVectorActions, useVectorPlacement, VectorRotateSchema } from "src/en
 import { transferDegreeToRadian } from "src/shared/lib/math";
 
 type UseVectorRotateType = UseFormReturn<VectorRotateValues> & {
-  rotateVector: () => void;
+  rotateVector: (suggestedDegree?: number) => void;
   isButtonDisabled: boolean;
 };
 
-// TODO: Validate 360, 720 values, .etc
 export const useVectorRotate = (): UseVectorRotateType => {
   const { xStart, xEnd, yStart, yEnd } = useVectorPlacement();
   const { setVectorPlacement } = useVectorActions();
@@ -22,10 +21,12 @@ export const useVectorRotate = (): UseVectorRotateType => {
     resolver: zodResolver(VectorRotateSchema)
   });
 
-  const degrees = formMethods.watch("degrees");
+  const inputDegrees = formMethods.watch("degrees");
 
-  const rotateVector = (): void => {
-    const degreesInRadians = transferDegreeToRadian(-degrees);
+  const rotateVector = (suggestedDegree?: number): void => {
+    const degreesInRadians = suggestedDegree
+      ? transferDegreeToRadian(-suggestedDegree)
+      : transferDegreeToRadian(-inputDegrees);
 
     const vectorX = xEnd - xStart;
     const vectorY = yEnd - yStart;
@@ -38,5 +39,5 @@ export const useVectorRotate = (): UseVectorRotateType => {
     setVectorPlacement({ xEnd: xStart + rotatedX, yEnd: yStart + rotatedY });
   };
 
-  return { ...formMethods, isButtonDisabled: !degrees || degrees === 0, rotateVector };
+  return { ...formMethods, isButtonDisabled: !inputDegrees || inputDegrees === 0, rotateVector };
 };

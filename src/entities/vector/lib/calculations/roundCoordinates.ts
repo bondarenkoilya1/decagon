@@ -1,4 +1,4 @@
-import type { CoordinatesType } from "src/shared";
+import type { CoordinatesType } from "src/entities";
 
 import { roundTo } from "src/shared/lib/math/roundTo";
 
