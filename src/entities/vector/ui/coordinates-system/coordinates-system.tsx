@@ -4,7 +4,9 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import type { ColorType } from "src/shared";
 
-const COLORS = {
+type ColorsType = Record<string, ColorType>;
+
+const COLORS: ColorsType = {
   grid: "#e8f4f8",
   axes: "#2c3e50",
   labels: "#34495e"
@@ -35,7 +37,7 @@ export const CoordinatesSystem = (): JSX.Element => {
     ctx: CanvasRenderingContext2D,
     canvasWidth: number,
     canvasHeight: number,
-    color: ColorType = "#ddd"
+    color: ColorType = COLORS.grid
   ): void => {
     ctx.fillStyle = color;
     ctx.fillRect(0, canvasHeight / 2, canvasWidth, 1);
