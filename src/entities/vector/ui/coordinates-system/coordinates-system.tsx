@@ -4,9 +4,14 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import type { ColorType } from "src/shared";
 
-import { drawAxes, drawGrid } from "src/entities/vector/ui/coordinates-system/model";
+import {
+  drawAxes,
+  drawAxesLabels,
+  drawGrid
+} from "src/entities/vector/ui/coordinates-system/model";
 
 type ColorsType = Record<string, ColorType>;
+type FontType = `${number}px ${string}`;
 
 const COLORS: ColorsType = {
   grid: "#e8f4f8",
@@ -14,6 +19,8 @@ const COLORS: ColorsType = {
   labels: "#34495e"
 };
 const GRID_STEP = 10;
+const LABELS_FONT: FontType = "14px Arial";
+const LABELS_OFFSET = 14;
 
 export const CoordinatesSystem = (): JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,6 +42,7 @@ export const CoordinatesSystem = (): JSX.Element => {
 
     drawGrid(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.grid);
     drawAxes(ctx, canvasWidth, canvasHeight, COLORS.axes);
+    drawAxesLabels(ctx, canvasWidth, canvasHeight, COLORS.labels, LABELS_FONT, LABELS_OFFSET);
   }, []);
 
   return (

@@ -30,3 +30,17 @@ export const drawGrid = (
     ctx.fillRect(0, y, canvasWidth, 1);
   }
 };
+
+export const drawAxesLabels = (
+  ctx: CanvasRenderingContext2D,
+  canvasWidth: number,
+  canvasHeight: number,
+  color: ColorType,
+  font: string,
+  offset: number
+): void => {
+  ctx.fillStyle = color;
+  ctx.font = font;
+  ctx.fillText("x", canvasWidth - offset, canvasHeight / 2 + offset);
+  ctx.fillText("y", canvasWidth / 2 - offset, offset);
+};
