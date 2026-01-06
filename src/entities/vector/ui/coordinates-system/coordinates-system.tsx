@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import type { ColorType } from "src/shared";
 
+import { drawAxes, drawGrid } from "src/entities/vector/ui/coordinates-system/model";
+
 type ColorsType = Record<string, ColorType>;
 
 const COLORS: ColorsType = {
@@ -11,6 +13,7 @@ const COLORS: ColorsType = {
   axes: "#2c3e50",
   labels: "#34495e"
 };
+const GRID_STEP = 10;
 
 export const CoordinatesSystem = (): JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -30,19 +33,9 @@ export const CoordinatesSystem = (): JSX.Element => {
     const canvasWidth = canvasRect.width;
     const canvasHeight = canvasRect.height;
 
-    drawAxis(ctx, canvasWidth, canvasHeight);
+    drawGrid(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.grid);
+    drawAxes(ctx, canvasWidth, canvasHeight, COLORS.axes);
   }, []);
-
-  const drawAxis = (
-    ctx: CanvasRenderingContext2D,
-    canvasWidth: number,
-    canvasHeight: number,
-    color: ColorType = COLORS.grid
-  ): void => {
-    ctx.fillStyle = color;
-    ctx.fillRect(0, canvasHeight / 2, canvasWidth, 1);
-    ctx.fillRect(canvasWidth / 2, 0, 1, canvasHeight);
-  };
 
   return (
     <canvas

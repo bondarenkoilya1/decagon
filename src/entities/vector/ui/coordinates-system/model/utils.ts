@@ -1,0 +1,32 @@
+import type { ColorType } from "src/shared";
+
+export const drawAxes = (
+  ctx: CanvasRenderingContext2D,
+  canvasWidth: number,
+  canvasHeight: number,
+  color: ColorType
+): void => {
+  ctx.fillStyle = color;
+  ctx.fillRect(0, canvasHeight / 2, canvasWidth, 1);
+  ctx.fillRect(canvasWidth / 2, 0, 1, canvasHeight);
+};
+
+export const drawGrid = (
+  step: number,
+  ctx: CanvasRenderingContext2D,
+  canvasWidth: number,
+  canvasHeight: number,
+  color: ColorType
+): void => {
+  const stepX = canvasWidth / step;
+  const stepY = canvasHeight / step;
+  ctx.fillStyle = color;
+
+  for (let x = 0; x <= canvasWidth; x += stepX) {
+    ctx.fillRect(x, 0, 1, canvasHeight);
+  }
+
+  for (let y = 0; y <= canvasHeight; y += stepY) {
+    ctx.fillRect(0, y, canvasWidth, 1);
+  }
+};
