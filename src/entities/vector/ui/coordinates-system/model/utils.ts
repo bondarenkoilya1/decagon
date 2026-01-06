@@ -46,3 +46,30 @@ export const drawAxesLabels = (
   ctx.fillText("x", canvasWidth - offset, canvasHeight / 2 + offset);
   ctx.fillText("y", canvasWidth / 2 - offset, offset);
 };
+
+export const drawGridLabels = (
+  step: number,
+  ctx: CanvasRenderingContext2D,
+  canvasWidth: number,
+  canvasHeight: number,
+  color: ColorType,
+  font: FontType
+): void => {
+  const stepX = canvasWidth / step;
+  const stepY = canvasHeight / step;
+  ctx.fillStyle = color;
+  ctx.font = font;
+
+  const half = step / 2;
+  const diapason = Array.from({ length: step + 1 }, (_, i) => i - half);
+
+  for (let i = 0; i <= step; i++) {
+    const x = i * stepX;
+    const y = i * stepY;
+    ctx.fillText(String(diapason[i]), x, canvasHeight / 2 + 14);
+    if (y === canvasHeight / 2) {
+      continue;
+    }
+    ctx.fillText(String(diapason[i]), canvasWidth / 2 - 14, y);
+  }
+};

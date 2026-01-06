@@ -7,7 +7,8 @@ import type { ColorType, FontType } from "src/shared";
 import {
   drawAxes,
   drawAxesLabels,
-  drawGrid
+  drawGrid,
+  drawGridLabels
 } from "src/entities/vector/ui/coordinates-system/model";
 
 type ColorsType = Record<string, ColorType>;
@@ -41,6 +42,7 @@ export const CoordinatesSystem = (): JSX.Element => {
 
     // Objects on the top of the canvas should be drawn last.
     drawGrid(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.grid, LABELS_FONT);
+    drawGridLabels(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.axes, LABELS_FONT);
     drawAxes(ctx, canvasWidth, canvasHeight, COLORS.axes);
     drawAxesLabels(ctx, canvasWidth, canvasHeight, COLORS.labels, LABELS_FONT, LABELS_OFFSET);
   }, []);
