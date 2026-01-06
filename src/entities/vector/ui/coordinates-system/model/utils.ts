@@ -1,4 +1,4 @@
-import type { ColorType } from "src/shared";
+import type { ColorType, FontType } from "src/shared";
 
 export const drawAxes = (
   ctx: CanvasRenderingContext2D,
@@ -16,11 +16,13 @@ export const drawGrid = (
   ctx: CanvasRenderingContext2D,
   canvasWidth: number,
   canvasHeight: number,
-  color: ColorType
+  color: ColorType,
+  font: FontType
 ): void => {
   const stepX = canvasWidth / step;
   const stepY = canvasHeight / step;
   ctx.fillStyle = color;
+  ctx.font = font;
 
   for (let x = 0; x <= canvasWidth; x += stepX) {
     ctx.fillRect(x, 0, 1, canvasHeight);
@@ -36,7 +38,7 @@ export const drawAxesLabels = (
   canvasWidth: number,
   canvasHeight: number,
   color: ColorType,
-  font: string,
+  font: FontType,
   offset: number
 ): void => {
   ctx.fillStyle = color;

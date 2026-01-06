@@ -2,7 +2,7 @@
 import type { JSX } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import type { ColorType } from "src/shared";
+import type { ColorType, FontType } from "src/shared";
 
 import {
   drawAxes,
@@ -11,7 +11,6 @@ import {
 } from "src/entities/vector/ui/coordinates-system/model";
 
 type ColorsType = Record<string, ColorType>;
-type FontType = `${number}px ${string}`;
 
 const COLORS: ColorsType = {
   grid: "#e8f4f8",
@@ -40,7 +39,8 @@ export const CoordinatesSystem = (): JSX.Element => {
     const canvasWidth = canvasRect.width;
     const canvasHeight = canvasRect.height;
 
-    drawGrid(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.grid);
+    // Objects on the top of the canvas should be drawn last.
+    drawGrid(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.grid, LABELS_FONT);
     drawAxes(ctx, canvasWidth, canvasHeight, COLORS.axes);
     drawAxesLabels(ctx, canvasWidth, canvasHeight, COLORS.labels, LABELS_FONT, LABELS_OFFSET);
   }, []);

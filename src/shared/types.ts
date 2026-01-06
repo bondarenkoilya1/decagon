@@ -29,3 +29,4 @@ export type NavigationSectionProps = {
 };
 
 export type ColorType = `#${string}`;
+export type FontType = `${number}px ${string}`;
