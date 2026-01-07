@@ -2,30 +2,20 @@
 import type { JSX } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import type { ColorType, FontType } from "src/shared";
 
+import type { CanvasPropertiesType } from "src/entities/vector/ui/coordinates-system/model";
 import {
   drawAxes,
   drawAxesLabels,
   drawGrid,
   drawGridLabels
 } from "src/entities/vector/ui/coordinates-system/model";
-
-type ColorsType = Record<string, ColorType>;
-export type CanvasPropertiesType = {
-  ctx: CanvasRenderingContext2D;
-  width: number;
-  height: number;
-};
-
-const COLORS: ColorsType = {
-  grid: "#e8f4f8",
-  axes: "#2c3e50",
-  labels: "#34495e"
-};
-const GRID_STEP = 20;
-const LABELS_FONT: FontType = "14px Arial";
-const LABELS_OFFSET = 14;
+import {
+  COLORS,
+  GRID_STEP,
+  LABELS_FONT,
+  LABELS_OFFSET
+} from "src/entities/vector/ui/coordinates-system/model";
 
 export const CoordinatesSystem = (): JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

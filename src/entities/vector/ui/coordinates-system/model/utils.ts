@@ -1,5 +1,6 @@
-import type { CanvasPropertiesType } from "src/entities";
 import type { ColorType } from "src/shared";
+
+import type { CanvasPropertiesType } from "src/entities/vector/ui/coordinates-system/model/types";
 
 export const drawAxes = (canvasProperties: CanvasPropertiesType, color: ColorType): void => {
   const { ctx, width, height } = canvasProperties;
