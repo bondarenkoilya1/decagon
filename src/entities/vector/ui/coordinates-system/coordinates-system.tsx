@@ -12,6 +12,7 @@ import {
 } from "src/entities/vector/ui/coordinates-system/model";
 import {
   COLORS,
+  DPR,
   GRID_STEP,
   LABELS_FONT,
   LABELS_OFFSET
@@ -32,6 +33,11 @@ export const CoordinatesSystem = (): JSX.Element => {
     }
 
     const canvasRect = canvas.getBoundingClientRect();
+    canvas.width = canvasRect.width * DPR;
+    canvas.height = canvasRect.height * DPR;
+    canvas.style.width = `${canvasRect.width}px`;
+    canvas.style.height = `${canvasRect.height}px`;
+    ctx.scale(DPR, DPR);
     ctx.font = LABELS_FONT;
 
     const canvasProperties: CanvasPropertiesType = {
