@@ -10,4 +10,3 @@ export const COLORS: ColorsType = {
 export const GRID_STEP = 20;
 export const LABELS_FONT: FontType = "14px Arial";
 export const LABELS_OFFSET = 14;
-export const DPR = window.devicePixelRatio || 1;
