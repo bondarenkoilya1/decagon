@@ -7,6 +7,6 @@ export const COLORS: ColorsType = {
   axes: "#2c3e50",
   labels: "#34495e"
 };
-export const GRID_STEP = 20;
+export const GRID_STEP = 10;
 export const LABELS_FONT: FontType = "14px Arial";
 export const LABELS_OFFSET = 14;

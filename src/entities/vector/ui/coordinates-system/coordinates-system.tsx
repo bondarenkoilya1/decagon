@@ -5,17 +5,17 @@ import { useRef } from "react";
 
 import type { CanvasPropertiesType } from "src/entities/vector/ui/coordinates-system/model";
 import {
+  COLORS,
   drawAxes,
   drawAxesLabels,
   drawGrid,
-  drawGridLabels
-} from "src/entities/vector/ui/coordinates-system/model";
-import {
-  COLORS,
+  drawGridLabels,
   GRID_STEP,
   LABELS_FONT,
   LABELS_OFFSET
 } from "src/entities/vector/ui/coordinates-system/model";
+
+const DPR = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
 
 export const CoordinatesSystem = (): JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -31,19 +31,17 @@ export const CoordinatesSystem = (): JSX.Element => {
       return;
     }
 
-    const canvasRect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    canvas.height = canvasRect.height * dpr;
-    canvas.style.width = `${canvasRect.width}px`;
-    canvas.style.height = `${canvasRect.height}px`;
-    ctx.scale(dpr, dpr);
+    const { width, height } = canvas.getBoundingClientRect();
+
+    canvas.width = width * DPR;
+    canvas.height = height * DPR;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    ctx.scale(DPR, DPR);
     ctx.font = LABELS_FONT;
 
-    const canvasProperties: CanvasPropertiesType = {
-      ctx: ctx,
-      width: canvasRect.width,
-      height: canvasRect.height
-    };
+    const canvasProperties: CanvasPropertiesType = { ctx, width, height };
 
     // Objects on the top of the canvas should be drawn last.
     drawGrid(canvasProperties, GRID_STEP, COLORS.grid);
@@ -55,8 +53,8 @@ export const CoordinatesSystem = (): JSX.Element => {
   return (
     <canvas
       ref={canvasRef}
-      width={700}
-      height={400}
+      width={1000}
+      height={600}
       className="bg-white border-2 border-solid border-[#3498db] rounded-lg shadow-md mx-auto"
     />
   );
