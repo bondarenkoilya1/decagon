@@ -1,64 +1,52 @@
-import type { ColorType, FontType } from "src/shared";
+import type { CanvasPropertiesType } from "src/entities";
+import type { ColorType } from "src/shared";
 
-export const drawAxes = (
-  ctx: CanvasRenderingContext2D,
-  canvasWidth: number,
-  canvasHeight: number,
-  color: ColorType
-): void => {
+export const drawAxes = (canvasProperties: CanvasPropertiesType, color: ColorType): void => {
+  const { ctx, width, height } = canvasProperties;
   ctx.fillStyle = color;
-  ctx.fillRect(0, canvasHeight / 2, canvasWidth, 1);
-  ctx.fillRect(canvasWidth / 2, 0, 1, canvasHeight);
+  ctx.fillRect(0, height / 2, width, 1);
+  ctx.fillRect(width / 2, 0, 1, height);
 };
 
 export const drawGrid = (
+  canvasProperties: CanvasPropertiesType,
   step: number,
-  ctx: CanvasRenderingContext2D,
-  canvasWidth: number,
-  canvasHeight: number,
-  color: ColorType,
-  font: FontType
+  color: ColorType
 ): void => {
-  const stepX = canvasWidth / step;
-  const stepY = canvasHeight / step;
+  const { ctx, width, height } = canvasProperties;
+  const stepX = width / step;
+  const stepY = height / step;
   ctx.fillStyle = color;
-  ctx.font = font;
 
-  for (let x = 0; x <= canvasWidth; x += stepX) {
-    ctx.fillRect(x, 0, 1, canvasHeight);
+  for (let x = 0; x <= width; x += stepX) {
+    ctx.fillRect(x, 0, 1, height);
   }
 
-  for (let y = 0; y <= canvasHeight; y += stepY) {
-    ctx.fillRect(0, y, canvasWidth, 1);
+  for (let y = 0; y <= height; y += stepY) {
+    ctx.fillRect(0, y, width, 1);
   }
 };
 
 export const drawAxesLabels = (
-  ctx: CanvasRenderingContext2D,
-  canvasWidth: number,
-  canvasHeight: number,
+  canvasProperties: CanvasPropertiesType,
   color: ColorType,
-  font: FontType,
   offset: number
 ): void => {
+  const { ctx, width, height } = canvasProperties;
   ctx.fillStyle = color;
-  ctx.font = font;
-  ctx.fillText("x", canvasWidth - offset, canvasHeight / 2 + offset);
-  ctx.fillText("y", canvasWidth / 2 - offset, offset);
+  ctx.fillText("x", width - offset, height / 2 + offset);
+  ctx.fillText("y", width / 2 - offset, offset);
 };
 
 export const drawGridLabels = (
+  canvasProperties: CanvasPropertiesType,
   step: number,
-  ctx: CanvasRenderingContext2D,
-  canvasWidth: number,
-  canvasHeight: number,
-  color: ColorType,
-  font: FontType
+  color: ColorType
 ): void => {
-  const stepX = canvasWidth / step;
-  const stepY = canvasHeight / step;
+  const { ctx, width, height } = canvasProperties;
+  const stepX = width / step;
+  const stepY = height / step;
   ctx.fillStyle = color;
-  ctx.font = font;
 
   const half = step / 2;
   const diapason = Array.from({ length: step + 1 }, (_, i) => i - half);
@@ -66,10 +54,10 @@ export const drawGridLabels = (
   for (let i = 0; i <= step; i++) {
     const x = i * stepX;
     const y = i * stepY;
-    ctx.fillText(String(diapason[i]), x, canvasHeight / 2 + 14);
-    if (y === canvasHeight / 2) {
+    ctx.fillText(String(diapason[i]), x, height / 2 + 14);
+    if (y === height / 2) {
       continue;
     }
-    ctx.fillText(String(diapason[i]), canvasWidth / 2 - 14, y);
+    ctx.fillText(String(diapason[i]), width / 2 - 14, y);
   }
 };

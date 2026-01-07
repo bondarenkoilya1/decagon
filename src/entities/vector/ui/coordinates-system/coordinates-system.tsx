@@ -12,13 +12,18 @@ import {
 } from "src/entities/vector/ui/coordinates-system/model";
 
 type ColorsType = Record<string, ColorType>;
+export type CanvasPropertiesType = {
+  ctx: CanvasRenderingContext2D;
+  width: number;
+  height: number;
+};
 
 const COLORS: ColorsType = {
   grid: "#e8f4f8",
   axes: "#2c3e50",
   labels: "#34495e"
 };
-const GRID_STEP = 10;
+const GRID_STEP = 20;
 const LABELS_FONT: FontType = "14px Arial";
 const LABELS_OFFSET = 14;
 
@@ -37,14 +42,19 @@ export const CoordinatesSystem = (): JSX.Element => {
     }
 
     const canvasRect = canvas.getBoundingClientRect();
-    const canvasWidth = canvasRect.width;
-    const canvasHeight = canvasRect.height;
+    ctx.font = LABELS_FONT;
+
+    const canvasProperties: CanvasPropertiesType = {
+      ctx: ctx,
+      width: canvasRect.width,
+      height: canvasRect.height
+    };
 
     // Objects on the top of the canvas should be drawn last.
-    drawGrid(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.grid, LABELS_FONT);
-    drawGridLabels(GRID_STEP, ctx, canvasWidth, canvasHeight, COLORS.axes, LABELS_FONT);
-    drawAxes(ctx, canvasWidth, canvasHeight, COLORS.axes);
-    drawAxesLabels(ctx, canvasWidth, canvasHeight, COLORS.labels, LABELS_FONT, LABELS_OFFSET);
+    drawGrid(canvasProperties, GRID_STEP, COLORS.grid);
+    drawGridLabels(canvasProperties, GRID_STEP, COLORS.axes);
+    drawAxes(canvasProperties, COLORS.axes);
+    drawAxesLabels(canvasProperties, COLORS.labels, LABELS_OFFSET);
   }, []);
 
   return (
