@@ -76,10 +76,10 @@ export const drawGridLabels = (
   for (let i = 0; i <= step; i++) {
     const x = i * stepX;
     const y = i * stepY;
-    ctx.fillText(String(diapason[i]), x, height / 2 + 14);
+    ctx.fillText(String(diapason[i]), x - 4, height / 2 + 14);
     if (y === height / 2) {
       continue;
     }
-    ctx.fillText(String(diapason[i]), width / 2 - 14, y);
+    ctx.fillText(String(diapason[i]), width / 2 - 14, y + 4);
   }
 };

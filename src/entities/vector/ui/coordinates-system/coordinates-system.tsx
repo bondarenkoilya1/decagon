@@ -35,6 +35,33 @@ export const CoordinatesSystem = (): JSX.Element => {
     const { width, height } = canvas.getBoundingClientRect();
 
     renderCoordinateSystem({ ctx, width, height });
+
+    const singleBlockWidth = canvas.width / GRID_STEP / 2;
+    const singleBlockHeight = canvas.height / GRID_STEP / 2;
+
+    const zeroCoordinate = {
+      x: width / 2,
+      y: height / 2
+    };
+
+    // [xStart, xEnd], [yStart, yEnd]
+    const formDataVector = [
+      [-4, 2].map((coordinate) => coordinate * singleBlockWidth),
+      [2, 2].map((coordinate) => coordinate * singleBlockHeight)
+    ];
+
+    const canvasVector = {
+      xStart: zeroCoordinate.x + formDataVector[0][0],
+      xEnd: zeroCoordinate.x + formDataVector[0][1],
+      yStart: zeroCoordinate.y + formDataVector[1][0],
+      yEnd: zeroCoordinate.y + formDataVector[1][1]
+    };
+
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(canvasVector.xStart, canvasVector.yStart);
+    ctx.lineTo(canvasVector.xEnd, canvasVector.yEnd);
+    ctx.stroke();
   }, []);
 
   return (
