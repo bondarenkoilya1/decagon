@@ -25,7 +25,7 @@ export const VectorSingleForm = (): JSX.Element => {
 
   return (
     <Panel
-      className="border-gray-300 p-3 border border-solid rounded"
+      className="rounded border border-solid border-gray-300 p-3"
       tag="form"
       onSubmit={onSubmit}>
       <ul>
@@ -33,7 +33,7 @@ export const VectorSingleForm = (): JSX.Element => {
           <FormInputPair key={crypto.randomUUID()} inputPair={inputPair} register={register} />
         ))}
       </ul>
-      <Button type="submit" className="w-full mt-4">
+      <Button type="submit" className="mt-4 w-full">
         {t("singleForm.submit")}
       </Button>
       <Typography.Shy className="mt-2.5">{t("singleForm.hint")}</Typography.Shy>

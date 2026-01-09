@@ -10,7 +10,7 @@ export const MatrixCellGroup: FC<{
 }> = ({ matrix, matrixIndexingMode }) => {
   return (
     <div
-      className="grid gap-2 justify-center"
+      className="grid justify-center gap-2"
       style={{ gridTemplateColumns: `repeat(${matrix[0]?.length || 0}, 60px)` }}>
       {matrix.map((row, i) =>
         row.map((cell, j) => (

@@ -17,7 +17,7 @@ export const MatrixInputCell: FC<MatrixInputCellProps> = ({ i, j, cell, matrixIn
     <Input
       key={tooltip}
       type="number"
-      className="text-center w-full"
+      className="w-full text-center"
       defaultValue={cell}
       title={tooltip}
     />

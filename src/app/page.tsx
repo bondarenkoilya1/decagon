@@ -14,7 +14,7 @@ const VectorPage = (): JSX.Element => {
 
   return (
     <Container>
-      <Typography.H1 className="mb-8 border-b-4 border-blue-500 pb-2 w-fit">
+      <Typography.H1 className="mb-8 w-fit border-b-4 border-blue-500 pb-2">
         {t("vectors.single.title")}
       </Typography.H1>
 
@@ -27,7 +27,7 @@ const VectorPage = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="mt-10 w-fit flex items-start">
+      <div className="mt-10 flex w-fit items-start">
         <div className="mr-5">
           <VectorPropertiesPanel />
           <VectorScalePanel className="mt-5" />

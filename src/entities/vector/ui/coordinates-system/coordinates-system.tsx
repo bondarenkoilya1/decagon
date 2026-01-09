@@ -40,7 +40,7 @@ export const CoordinatesSystem = (): JSX.Element => {
   return (
     <canvas
       ref={canvasRef}
-      className="bg-white border-2 border-solid border-[#3498db] rounded-lg shadow-md mx-auto w-[1000px] h-[600px]"
+      className="mx-auto h-[600px] w-[1000px] rounded-lg border-2 border-solid border-[#3498db] bg-white shadow-md"
     />
   );
 };

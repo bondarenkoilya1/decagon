@@ -29,7 +29,7 @@ export const VectorPropertiesPanel: FC = () => {
       </Typography.Shy>{" "}
       <CopyVectorPlacementButton
         vectorPlacement={JSON.stringify(vectorPlacement)}
-        className="w-full mt-3"
+        className="mt-3 w-full"
       />
     </Panel>
   );

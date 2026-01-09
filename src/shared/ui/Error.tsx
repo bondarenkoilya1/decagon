@@ -19,12 +19,12 @@ export const Error: FC<ErrorProps> = ({
   hasTime
 }) => {
   return (
-    <section className="rounded-md bg-white max-w-[800px] shadow-xs">
-      <header className="p-8 bg-gray-100">
-        {errorShortMessage && <p className="text-base my-3">{errorShortMessage}</p>}
+    <section className="max-w-[800px] rounded-md bg-white shadow-xs">
+      <header className="bg-gray-100 p-8">
+        {errorShortMessage && <p className="my-3 text-base">{errorShortMessage}</p>}
         <Typography.H1>Error {errorCode}</Typography.H1>
         {websiteUrl && (
-          <Link className="inline-block text-sm mt-1" href="/">
+          <Link className="mt-1 inline-block text-sm" href="/">
             {websiteUrl}
           </Link>
         )}
@@ -33,7 +33,7 @@ export const Error: FC<ErrorProps> = ({
       {errorFullMessage && (
         <main className="p-8">
           <h3 className="text-xl font-semibold">What happened?</h3>
-          <p className="text-base mt-3">{errorFullMessage}</p>
+          <p className="mt-3 text-base">{errorFullMessage}</p>
         </main>
       )}
     </section>
@@ -43,5 +43,5 @@ export const Error: FC<ErrorProps> = ({
 function Timestamp(): JSX.Element {
   const timestamp = new Date().toUTCString();
 
-  return <time className="text-sm text-gray-400 mt-3 block">{timestamp}</time>;
+  return <time className="mt-3 block text-sm text-gray-400">{timestamp}</time>;
 }

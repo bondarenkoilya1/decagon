@@ -24,7 +24,7 @@ export const SingleMatrixForm: FC = () => {
 
   return (
     <Panel
-      className="border-gray-300 p-3 border border-solid rounded"
+      className="rounded border border-solid border-gray-300 p-3"
       tag="form"
       onSubmit={(event) => recreateMatrix(event, rowsCount, columnsCount)}>
       <Typography.H5>Create and modify your matrix</Typography.H5>

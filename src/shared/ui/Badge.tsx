@@ -20,13 +20,13 @@ export const Badge: FC<BadgeProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "w-8 h-8 flex items-center justify-center rounded-md transition-all border text-sm select-none",
-        "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+        "flex h-8 w-8 items-center justify-center rounded-md border text-sm transition-all select-none",
+        "focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none",
         !disabled && "active:scale-95",
         selected
-          ? "bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
-          : "bg-gray-100 hover:bg-gray-200 hover:border-gray-300 border-transparent",
-        disabled && "opacity-50 cursor-not-allowed",
+          ? "border-blue-500 bg-blue-500 text-white hover:bg-blue-600"
+          : "border-transparent bg-gray-100 hover:border-gray-300 hover:bg-gray-200",
+        disabled && "cursor-not-allowed opacity-50",
         className
       )}
       {...rest}>

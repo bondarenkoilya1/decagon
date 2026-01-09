@@ -21,7 +21,7 @@ const TwoVectorsPage = (): JSX.Element => {
 
   return (
     <Container>
-      <Typography.H1 className="mb-8 border-b-8 border-blue-500 border-double pb-2 w-fit">
+      <Typography.H1 className="mb-8 w-fit border-b-8 border-double border-blue-500 pb-2">
         {t("vectors.two.title")}
       </Typography.H1>
 
@@ -34,7 +34,7 @@ const TwoVectorsPage = (): JSX.Element => {
           <VectorCreateForm type="pair" />
           <CopyVectorPlacementButton
             vectorPlacement={JSON.stringify(vectorPlacement)}
-            className="w-full mt-3"
+            className="mt-3 w-full"
           />
         </div>
         <TwoVectorsSettingsPanel className="ml-10 h-fit" />
