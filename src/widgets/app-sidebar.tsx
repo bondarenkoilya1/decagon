@@ -27,7 +27,7 @@ export const AppSidebar: FC<SidebarProps> = ({ title, components }) => {
 
   return (
     <Sidebar>
-      <SidebarHeader className="ml-2 mt-4 flex flex-row items-center">
+      <SidebarHeader className="mt-4 ml-2 flex flex-row items-center">
         <h2 className="text-lg font-semibold">{title}</h2>
         <Boxes />
       </SidebarHeader>

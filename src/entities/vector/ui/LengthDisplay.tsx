@@ -24,10 +24,10 @@ export const LengthDisplay: FC<VectorLengthProps> = ({
         {t("vector.length.title")}: {vectorLength}
       </Typography.H5>
       <div className="mt-3">
-        <p className="[&:not(:first-of-type)]:mt-1 text-sm">
+        <p className="text-sm [&:not(:first-of-type)]:mt-1">
           {t("vector.length.projection.x")}: {xProjectionLength}
         </p>
-        <p className="[&:not(:first-of-type)]:mt-1 text-sm">
+        <p className="text-sm [&:not(:first-of-type)]:mt-1">
           {t("vector.length.projection.y")}: {yProjectionLength}
         </p>
       </div>

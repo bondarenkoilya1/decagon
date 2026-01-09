@@ -24,8 +24,8 @@ export const ScaleInput = ({ element, register, onScale }: ScaleInputProps): JSX
   const t = useTranslations();
 
   return (
-    <ButtonGroup className="flex justify-between items-end mt-4" key={crypto.randomUUID()}>
-      <div className="grid max-w-sm items-center gap-1 w-1.5/6">
+    <ButtonGroup className="mt-4 flex items-end justify-between" key={crypto.randomUUID()}>
+      <div className="w-1.5/6 grid max-w-sm items-center gap-1">
         <Label htmlFor={element.name}>{t(element.label)}</Label>
         <Input
           {...register(element.name, { setValueAs: safeParseNumber })}

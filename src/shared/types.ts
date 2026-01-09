@@ -27,3 +27,6 @@ export type NavigationSectionProps = {
   title: string;
   items: NavigationItemProps[];
 };
+
+export type ColorType = `#${string}`;
+export type FontType = `${number}px ${string}`;

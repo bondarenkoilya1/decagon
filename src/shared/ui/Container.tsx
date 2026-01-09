@@ -4,7 +4,7 @@ import { cn } from "src/shared";
 
 export const Container: FC<ComponentProps<"div">> = ({ className, children, ...props }) => {
   return (
-    <div className={cn("max-w-[1620px] mx-auto", className)} {...props}>
+    <div className={cn("mx-auto max-w-[1620px]", className)} {...props}>
       {children}
     </div>
   );

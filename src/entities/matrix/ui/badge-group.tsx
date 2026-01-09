@@ -18,13 +18,13 @@ export const BadgeGroup = ({ label, onSelect, selected, onStep }: BadgeGroupProp
 
   return (
     <div className="my-4">
-      <div className="flex items-center mb-2">
+      <div className="mb-2 flex items-center">
         <StepButton
           operation="decrease"
           disabled={selected <= 1}
           onClick={() => onStep("decrease")}
         />
-        <span className="font-medium mx-3">{label}</span>
+        <span className="mx-3 font-medium">{label}</span>
         <StepButton
           operation="increase"
           disabled={selected >= MAX_ROWS_COUNT}

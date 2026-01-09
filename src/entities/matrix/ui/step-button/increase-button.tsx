@@ -14,7 +14,7 @@ export const IncreaseButton = ({ disabled, onClick }: StepButtonProps): JSX.Elem
   };
 
   return (
-    <Button variant="outline" className="w-6 h-6 select-none" onClick={onClickHandler}>
+    <Button variant="outline" className="h-6 w-6 select-none" onClick={onClickHandler}>
       +
     </Button>
   );

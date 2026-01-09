@@ -13,7 +13,7 @@ export const Line: FC<LineProps> = ({ markerId, xStart, yStart, xEnd, yEnd }) =>
       y1={String(yStart)}
       x2={String(xEnd)}
       y2={String(yEnd)}
-      className="stroke-red-500 stroke-2 mx-auto"
+      className="mx-auto stroke-red-500 stroke-2"
     />
   );
 };

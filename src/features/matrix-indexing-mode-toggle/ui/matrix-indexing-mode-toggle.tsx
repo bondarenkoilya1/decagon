@@ -20,8 +20,8 @@ export const MatrixIndexingModeToggle: FC = () => {
       <Label htmlFor="matrix-indexing-mode" className="cursor-pointer">
         {t("matrix.indexing")}
       </Label>
-      <span className="inline-flex items-center cursor-help" title={t("matrix.indexing.tooltip")}>
-        <Info className="w-4 h-4 opacity-30" />
+      <span className="inline-flex cursor-help items-center" title={t("matrix.indexing.tooltip")}>
+        <Info className="h-4 w-4 opacity-30" />
       </span>
     </div>
   );

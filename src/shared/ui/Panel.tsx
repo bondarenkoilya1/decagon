@@ -18,7 +18,7 @@ export const Panel = <T extends ElementType = "div">({
   const Tag = tag || "div";
 
   return (
-    <Tag className={cn("p-3 border border-solid rounded shadow-xs", className)} {...props}>
+    <Tag className={cn("rounded border border-solid p-3 shadow-xs", className)} {...props}>
       {children}
     </Tag>
   );
