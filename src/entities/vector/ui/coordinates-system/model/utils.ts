@@ -1,6 +1,27 @@
 import type { ColorType } from "src/shared";
 
+import { LABELS_FONT } from "src/entities/vector/ui/coordinates-system/model/constants";
 import type { CanvasPropertiesType } from "src/entities/vector/ui/coordinates-system/model/types";
+
+export const setupCanvas = (canvas: HTMLCanvasElement): CanvasRenderingContext2D => {
+  const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    throw new Error("Canvas context not available");
+  }
+
+  const { width, height } = canvas.getBoundingClientRect();
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+
+  ctx.scale(dpr, dpr);
+  ctx.font = LABELS_FONT;
+
+  return ctx;
+};
 
 export const drawAxes = (canvasProperties: CanvasPropertiesType, color: ColorType): void => {
   const { ctx, width, height } = canvasProperties;
