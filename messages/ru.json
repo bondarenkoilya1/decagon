@@ -1,4 +1,8 @@
 {
+  "notFound": {
+    "title": "Страница не найдена",
+    "description": "Запрашиваемая страница не существует."
+  },
   "main_languages": "Основные языки",
   "language_english": "Английский",
   "language_russian": "Русский",
@@ -22,10 +26,18 @@
   "matrix": {
     "form": {
       "create": "Создать матрицу",
+      "title": "Создайте и измените матрицу",
+      "rows": "Строки",
+      "columns": "Столбцы",
       "hint": "Вы можете создать только одну матрицу за раз. Свободно её изменяйте"
     },
-    "indexing": "Показывать индексы ячеек начиная с 0",
-    "indexingTooltip": "При включении индексы матричных ячеек начинаются с 0. При отключении они начинаются с 1"
+    "stepButton": {
+      "unknownOperation": "Укажите тип операции для StepButton"
+    },
+    "indexing": {
+      "label": "Показывать индексы ячеек начиная с 0",
+      "tooltip": "При включении индексы матричных ячеек начинаются с 0. При отключении они начинаются с 1"
+    }
   },
 
   "matrices": "Матрицы",
@@ -54,17 +66,57 @@
   },
 
   "copyCoordinates": "Скопировать координаты вектора",
+  "copy": {
+    "success": "Текст успешно скопирован",
+    "premiumOnly": "Только для пользователей Premium"
+  },
 
-  "normalize": "Нормализовать",
-  "normalizeTitle": "Нормализуй",
+  "premium": {
+    "matrixLimitToast": "Нужны матрицы до 100×100? Оформите Premium подписку!"
+  },
+
+  "vectorPair": {
+    "addTitle": "Сложить два вектора:",
+    "formulaAplusB": "A + B",
+    "formulaBplusA": "B + A",
+    "formulaAminusB": "A − B",
+    "formulaBminusA": "B − A"
+  },
+
+  "common": {
+    "appTitle": "Decagon",
+    "appDescription": "Калькулятор с визуализацией",
+    "close": "Закрыть"
+  },
+
+  "sidebar": {
+    "title": "Боковая панель",
+    "description": "Мобильная боковая панель.",
+    "toggle": "Открыть/закрыть панель"
+  },
+
+  "normalize": {
+    "title": "Нормализуй вектор",
+    "button": "Нормализовать"
+  },
 
   "invert": {
+    "title": "Инвертируй вектор",
     "completely": "Полностью"
   },
-  "invertTitle": "Инвертируй",
 
-  "rotate": "Повернуть",
-  "rotateTitle": "Поверни",
+  "rotate": {
+    "title": "Поверни вектор",
+    "button": "Повернуть",
+    "placeholder": "142"
+  },
+
+  "vectorProperties": {
+    "current": "Текущие",
+    "vectorCoordinates": "координаты вектора",
+    "where": "где:",
+    "pointsDescription": "A — начальная точка, B — конечная точка вектора"
+  },
 
   "vector": {
     "length": {
