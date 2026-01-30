@@ -17,12 +17,12 @@ const vectorStyles = "absolute inset-0 w-full h-full";
 
 const TwoVectorsPage = (): JSX.Element => {
   const vectorPlacement = useVectorPairPlacement();
-  const t = useTranslations();
+  const t = useTranslations("vectorsTitle");
 
   return (
     <Container>
       <Typography.H1 className="mb-8 w-fit border-b-8 border-double border-blue-500 pb-2">
-        {t("vectors.two.title")}
+        {t("two")}
       </Typography.H1>
 
       <div className="flex">

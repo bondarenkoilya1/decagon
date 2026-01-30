@@ -1,6 +1,6 @@
 "use client";
-import type { FC, FormEvent } from "react";
-import React from "react";
+
+import type { FC, FormEvent, KeyboardEvent } from "react";
 import { useTranslations } from "next-intl";
 
 import { useVectorRotate } from "src/features";
@@ -8,48 +8,48 @@ import { useVectorRotate } from "src/features";
 import { Button, ButtonGroup, Input, Typography } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
 
-const suggestedDegrees = [30, 45, 60, 90];
+const SUGGESTED_DEGREES = [30, 45, 60, 90];
 
 export const VectorRotatePanel: FC = () => {
+  const t = useTranslations("rotate");
   const { register, isButtonDisabled, rotateVector } = useVectorRotate();
-  const t = useTranslations();
 
-  const handleRotate = (event: FormEvent): void => {
+  const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
     rotateVector();
   };
 
-  const handleRotateOnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === "Enter") {
-      handleRotate(event);
+      handleSubmit(event);
     }
   };
 
   return (
-    <form onSubmit={handleRotate}>
+    <form onSubmit={handleSubmit}>
       <div className="flex items-center">
-        <Typography.H5 className="mr-4">{t("rotate.title")}:</Typography.H5>
+        <Typography.H5 className="mr-4">{t("title")}</Typography.H5>
         <Input
           {...register("degrees", { setValueAs: safeParseNumber })}
           type="number"
-          placeholder="142&deg;"
-          onKeyDown={handleRotateOnKeyDown}
+          placeholder={`${t("placeholder")}°`}
+          onKeyDown={handleKeyDown}
           className="w-fit"
         />
       </div>
 
       <ButtonGroup className="mt-4 w-full">
-        {suggestedDegrees.map((option) => (
+        {SUGGESTED_DEGREES.map((degrees) => (
           <Button
             variant="outline"
-            key={option}
+            key={degrees}
             className="w-1/6"
-            onClick={() => rotateVector(option)}>
-            {option}&deg;
+            onClick={() => rotateVector(degrees)}>
+            {degrees}°
           </Button>
         ))}
         <Button className="w-2/6" disabled={isButtonDisabled} type="submit">
-          {t("rotate")}
+          {t("button")}
         </Button>
       </ButtonGroup>
     </form>

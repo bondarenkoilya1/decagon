@@ -20,8 +20,8 @@ const inputs: InputsType[][] = [
 ];
 
 export const VectorSingleForm = (): JSX.Element => {
+  const t = useTranslations("singleForm");
   const { register, onSubmit } = useVectorForm();
-  const t = useTranslations();
 
   return (
     <Panel
@@ -34,9 +34,9 @@ export const VectorSingleForm = (): JSX.Element => {
         ))}
       </ul>
       <Button type="submit" className="mt-4 w-full">
-        {t("singleForm.submit")}
+        {t("submit")}
       </Button>
-      <Typography.Shy className="mt-2.5">{t("singleForm.hint")}</Typography.Shy>
+      <Typography.Shy className="mt-2.5">{t("hint")}</Typography.Shy>
     </Panel>
   );
 };

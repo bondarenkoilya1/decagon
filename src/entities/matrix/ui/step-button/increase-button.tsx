@@ -1,13 +1,18 @@
+"use client";
+
 import type { JSX } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import type { StepButtonProps } from "src/entities";
 
 import { Button } from "src/shared";
 
 export const IncreaseButton = ({ disabled, onClick }: StepButtonProps): JSX.Element => {
+  const t = useTranslations("premium");
+
   const onClickHandler = (): void | (string | number) => {
     if (disabled) {
-      return toast("Нужны матрицы вплоть до 100х100? Приобретайте Premium подписку!");
+      return toast(t("matrixLimitToast"));
     }
 
     onClick?.();

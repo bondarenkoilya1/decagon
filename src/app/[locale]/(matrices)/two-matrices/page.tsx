@@ -1,7 +1,9 @@
 import type { JSX } from "react";
 
+import { CoordinatesSystem } from "src/entities";
+
 const TwoMatricesPage = (): JSX.Element => {
-  return <>Two Matrices</>;
+  return <CoordinatesSystem />;
 };
 
 export default TwoMatricesPage;

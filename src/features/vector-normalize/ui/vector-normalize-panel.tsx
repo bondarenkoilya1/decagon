@@ -7,14 +7,14 @@ import { useVectorNormalize } from "src/features";
 import { Button, Typography } from "src/shared";
 
 export const VectorNormalizePanel: FC = () => {
+  const t = useTranslations("normalize");
   const { normalize, isButtonDisabled } = useVectorNormalize();
-  const t = useTranslations();
 
   return (
     <div className="flex items-center">
-      <Typography.H5 className="mr-3">{t("normalize.title")}:</Typography.H5>
+      <Typography.H5 className="mr-3">{t("title")}</Typography.H5>
       <Button onClick={normalize} disabled={isButtonDisabled}>
-        {t("normalize")}
+        {t("button")}
       </Button>
     </div>
   );

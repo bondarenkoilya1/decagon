@@ -1,4 +1,7 @@
+"use client";
+
 import type { JSX } from "react";
+import { useTranslations } from "next-intl";
 import type { StepButtonFabricProps } from "src/entities";
 
 import { DecreaseButton } from "src/entities/matrix/ui/step-button/decrease-button";
@@ -9,12 +12,14 @@ export const StepButton = ({
   disabled,
   onClick
 }: StepButtonFabricProps): JSX.Element => {
+  const t = useTranslations("matrix.stepButton");
+
   switch (operation) {
     case "increase":
       return <IncreaseButton onClick={onClick} disabled={disabled} />;
     case "decrease":
       return <DecreaseButton onClick={onClick} disabled={disabled} />;
     default:
-      return <span>Укажите тип операции для StepButton</span>;
+      return <span>{t("unknownOperation")}</span>;
   }
 };
