@@ -4,12 +4,13 @@ import { useTranslations } from "next-intl";
 
 import { VectorCreateForm, VectorPropertiesPanel, VectorScalePanel } from "src/features";
 
-import { useVectorPlacement, Vector, VectorContainer, VectorSettingsPanel } from "src/entities";
+// useVectorPlacement
+import { VectorSettings } from "src/entities";
 
 import { Container, Typography } from "src/shared";
 
 const VectorPage = (): JSX.Element => {
-  const vectorPlacement = useVectorPlacement();
+  // const vectorPlacement = useVectorPlacement();
   const t = useTranslations("vectorsTitle");
 
   return (
@@ -19,9 +20,9 @@ const VectorPage = (): JSX.Element => {
       </Typography.H1>
 
       <div className="flex">
-        <VectorContainer>
-          <Vector placement={vectorPlacement} />
-        </VectorContainer>
+        {/*<VectorContainer>*/}
+        {/*  <Vector placement={vectorPlacement} />*/}
+        {/*</VectorContainer>*/}
         <div className="ml-10 max-w-fit">
           <VectorCreateForm type="single" />
         </div>
@@ -32,7 +33,7 @@ const VectorPage = (): JSX.Element => {
           <VectorPropertiesPanel />
           <VectorScalePanel className="mt-5" />
         </div>
-        <VectorSettingsPanel />
+        <VectorSettings />
       </div>
     </Container>
   );

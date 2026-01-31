@@ -4,6 +4,7 @@ import type { JSX } from "react";
 import { useEffect, useRef } from "react";
 
 import type { CanvasPropertiesType } from "src/entities/vector/ui/coordinates-system/model";
+import { drawVector } from "src/entities/vector/ui/coordinates-system/model";
 import { setupCanvas } from "src/entities/vector/ui/coordinates-system/model";
 import {
   COLORS,
@@ -57,11 +58,7 @@ export const CoordinatesSystem = (): JSX.Element => {
       yEnd: zeroCoordinate.y + formDataVector[1][1]
     };
 
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(canvasVector.xStart, canvasVector.yStart);
-    ctx.lineTo(canvasVector.xEnd, canvasVector.yEnd);
-    ctx.stroke();
+    drawVector(ctx, canvasVector);
   }, []);
 
   return (
