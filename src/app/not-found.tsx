@@ -1,10 +1,19 @@
-import type { ReactNode } from "react";
+"use client";
 
-export default function RootNotFound(): ReactNode {
+import type { JSX } from "react";
+import { useTranslations } from "next-intl";
+
+import { Container, Typography } from "src/shared";
+
+const NotFoundPage = (): JSX.Element => {
+  const t = useTranslations("notFound");
+
   return (
-    <div style={{ padding: "2rem", textAlign: "center", fontFamily: "system-ui" }}>
-      <h1 style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>404</h1>
-      <p style={{ color: "#666" }}>Page not found</p>
-    </div>
+    <Container className="flex min-h-[60vh] flex-col items-center justify-center">
+      <Typography.H1 className="mb-2">{t("title")}</Typography.H1>
+      <Typography.P className="text-muted-foreground">{t("description")}</Typography.P>
+    </Container>
   );
-}
+};
+
+export default NotFoundPage;

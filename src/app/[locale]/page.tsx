@@ -4,13 +4,12 @@ import { useTranslations } from "next-intl";
 
 import { VectorCreateForm, VectorPropertiesPanel, VectorScalePanel } from "src/features";
 
-// useVectorPlacement
 import { VectorSettings } from "src/entities";
 
 import { Container, Typography } from "src/shared";
+import { CoordinatesSystem } from "src/shared/ui/coordinates-system";
 
 const VectorPage = (): JSX.Element => {
-  // const vectorPlacement = useVectorPlacement();
   const t = useTranslations("vectorsTitle");
 
   return (
@@ -20,9 +19,7 @@ const VectorPage = (): JSX.Element => {
       </Typography.H1>
 
       <div className="flex">
-        {/*<VectorContainer>*/}
-        {/*  <Vector placement={vectorPlacement} />*/}
-        {/*</VectorContainer>*/}
+        <CoordinatesSystem />
         <div className="ml-10 max-w-fit">
           <VectorCreateForm type="single" />
         </div>

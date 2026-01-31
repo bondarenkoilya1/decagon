@@ -15,7 +15,7 @@ import {
   WEBSITE_NAME
 } from "src/shared";
 
-import NotFoundPage from "./not-found";
+import NotFoundPage from "../not-found";
 
 type LocaleParams = Promise<{ locale: string }>;
 

@@ -1,6 +1,6 @@
 import type { CanvasPropertiesType } from "src/shared/ui/coordinates-system/model";
 
-type BlockSizesType = {
+export type BlockSizesType = {
   blockWidth: number;
   blockHeight: number;
 };
