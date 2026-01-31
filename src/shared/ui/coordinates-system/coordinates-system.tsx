@@ -38,23 +38,23 @@ export const CoordinatesSystem = (): JSX.Element => {
 
     renderCoordinateSystem({ ctx, width, height });
 
-    const zeroCoordinates = calculateZeroCoordinate({ width, height });
-    const singleBlockSize = calculateSingleBlockSize({ width, height });
+    const zeroCoordinates = calculateZeroCoordinate(width, height);
+    const singleBlockSize = calculateSingleBlockSize(width, height, GRID_STEP);
 
     // [xStart, xEnd], [yStart, yEnd]
-    const formDataVector = [
+    const desiredVector = [
       [-4, 2].map((coordinate) => coordinate * singleBlockSize.blockWidth),
       [2, 2].map((coordinate) => coordinate * singleBlockSize.blockHeight)
     ];
 
-    const canvasVector = {
-      xStart: zeroCoordinates.x + formDataVector[0][0],
-      xEnd: zeroCoordinates.x + formDataVector[0][1],
-      yStart: zeroCoordinates.y + formDataVector[1][0],
-      yEnd: zeroCoordinates.y + formDataVector[1][1]
+    const desiredVectorCanvasCoordinates = {
+      xStart: zeroCoordinates.x + desiredVector[0][0],
+      xEnd: zeroCoordinates.x + desiredVector[0][1],
+      yStart: zeroCoordinates.y + desiredVector[1][0],
+      yEnd: zeroCoordinates.y + desiredVector[1][1]
     };
 
-    drawVector(ctx, canvasVector);
+    drawVector(ctx, desiredVectorCanvasCoordinates);
   }, []);
 
   return (
