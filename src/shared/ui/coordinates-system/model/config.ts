@@ -1,6 +1,6 @@
 import type { FontType } from "src/shared";
 
-import type { ColorsType } from "src/entities/vector/ui/coordinates-system/model/types";
+import type { ColorsType } from "./types";
 
 export const COLORS: ColorsType = {
   grid: "#e8f4f8",

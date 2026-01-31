@@ -3,18 +3,19 @@
 import type { JSX } from "react";
 import { useEffect, useRef } from "react";
 
-import type { CanvasPropertiesType } from "src/entities/vector/ui/coordinates-system/model";
-import { drawVector } from "src/entities/vector/ui/coordinates-system/model";
-import { setupCanvas } from "src/entities/vector/ui/coordinates-system/model";
 import {
-  COLORS,
   drawAxes,
   drawAxesLabels,
   drawGrid,
   drawGridLabels,
-  GRID_STEP,
-  LABELS_OFFSET
-} from "src/entities/vector/ui/coordinates-system/model";
+  drawVector,
+  setupCanvas
+} from "src/shared/ui/coordinates-system/lib";
+import { calculateSingleBlockSize } from "src/shared/ui/coordinates-system/lib/calculate-single-block-size";
+import { calculateZeroCoordinate } from "src/shared/ui/coordinates-system/lib/calculate-zero-coordinate";
+
+import type { CanvasPropertiesType } from "./model";
+import { COLORS, GRID_STEP, LABELS_OFFSET } from "./model";
 
 const renderCoordinateSystem = (canvasProperties: CanvasPropertiesType): void => {
   drawGrid(canvasProperties, GRID_STEP, COLORS.grid);
@@ -37,25 +38,20 @@ export const CoordinatesSystem = (): JSX.Element => {
 
     renderCoordinateSystem({ ctx, width, height });
 
-    const singleBlockWidth = canvas.width / GRID_STEP / 2;
-    const singleBlockHeight = canvas.height / GRID_STEP / 2;
-
-    const zeroCoordinate = {
-      x: width / 2,
-      y: height / 2
-    };
+    const zeroCoordinates = calculateZeroCoordinate({ width, height });
+    const singleBlockSize = calculateSingleBlockSize({ width, height });
 
     // [xStart, xEnd], [yStart, yEnd]
     const formDataVector = [
-      [-4, 2].map((coordinate) => coordinate * singleBlockWidth),
-      [2, 2].map((coordinate) => coordinate * singleBlockHeight)
+      [-4, 2].map((coordinate) => coordinate * singleBlockSize.blockWidth),
+      [2, 2].map((coordinate) => coordinate * singleBlockSize.blockHeight)
     ];
 
     const canvasVector = {
-      xStart: zeroCoordinate.x + formDataVector[0][0],
-      xEnd: zeroCoordinate.x + formDataVector[0][1],
-      yStart: zeroCoordinate.y + formDataVector[1][0],
-      yEnd: zeroCoordinate.y + formDataVector[1][1]
+      xStart: zeroCoordinates.x + formDataVector[0][0],
+      xEnd: zeroCoordinates.x + formDataVector[0][1],
+      yStart: zeroCoordinates.y + formDataVector[1][0],
+      yEnd: zeroCoordinates.y + formDataVector[1][1]
     };
 
     drawVector(ctx, canvasVector);
