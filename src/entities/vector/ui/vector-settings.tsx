@@ -1,10 +1,10 @@
-import type { FC } from "react";
+import type { JSX } from "react";
 
 import { VectorInvertPanel, VectorNormalizePanel, VectorRotatePanel } from "src/features";
 
 import { Panel, Separator } from "src/shared";
 
-export const VectorSettingsPanel: FC = () => {
+export const VectorSettings = (): JSX.Element => {
   return (
     <Panel>
       <VectorInvertPanel />
