@@ -6,7 +6,7 @@ type Props = { children: ReactNode };
 
 export default function RootLayout({ children }: Props): ReactNode {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="ru">
       <body>{children}</body>
     </html>
   );

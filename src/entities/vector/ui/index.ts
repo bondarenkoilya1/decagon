@@ -1,4 +1,4 @@
-export * from "./CoordinatesDisplay";
+export * from "./vector-coordinates";
 export * from "./LengthDisplay";
 export * from "./Vector";
 export * from "./VectorSettingsPanel";

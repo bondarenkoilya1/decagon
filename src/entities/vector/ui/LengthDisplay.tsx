@@ -20,7 +20,6 @@ export const LengthDisplay: FC<VectorLengthProps> = ({
   return (
     <>
       <Typography.H5>
-        {/*todo: Your <Typography.Highlighted>vector length</Typography.Highlighted> is*/}
         {t("title")}: {vectorLength}
       </Typography.H5>
       <div className="mt-3">
