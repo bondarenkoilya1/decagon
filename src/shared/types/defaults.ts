@@ -17,16 +17,5 @@ export type AddOperationType = "increase" | "decrease";
 export type IndexingType = "zero" | "one";
 export type FormType = "single" | "pair";
 
-// Navigation
-export type NavigationItemProps = {
-  title: string;
-  url: string;
-};
-
-export type NavigationSectionProps = {
-  title: string;
-  items: NavigationItemProps[];
-};
-
 export type ColorType = `#${string}`;
 export type FontType = `${number}px ${string}`;
