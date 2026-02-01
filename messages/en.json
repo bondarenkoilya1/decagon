@@ -1,4 +1,8 @@
 {
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist."
+  },
   "main_languages": "Main languages",
   "language_english": "English",
   "language_russian": "Russian",
@@ -22,10 +26,18 @@
   "matrix": {
     "form": {
       "create": "Create matrix",
+      "title": "Create and modify your matrix",
+      "rows": "Rows",
+      "columns": "Columns",
       "hint": "You can only create a single matrix at one time. Feel free to modify it"
     },
-    "indexing": "Zero-based indexing",
-    "indexingTooltip": "When enabled, matrix cell indices start from 0. When disabled, they start from 1"
+    "stepButton": {
+      "unknownOperation": "Specify operation type for StepButton"
+    },
+    "indexing": {
+      "label": "Zero-based indexing",
+      "tooltip": "When enabled, matrix cell indices start from 0. When disabled, they start from 1"
+    }
   },
 
   "matrices": "Matrices",
@@ -54,17 +66,57 @@
   },
 
   "copyCoordinates": "Copy vector coordinates",
+  "copy": {
+    "success": "Text was successfully copied",
+    "premiumOnly": "Only premium users can use this feature"
+  },
 
-  "normalize": "Normalize",
-  "normalizeTitle": "Normalize your vector",
+  "premium": {
+    "matrixLimitToast": "Need matrices up to 100×100? Get a Premium subscription!"
+  },
+
+  "vectorPair": {
+    "addTitle": "Add two vectors:",
+    "formulaAplusB": "A + B",
+    "formulaBplusA": "B + A",
+    "formulaAminusB": "A − B",
+    "formulaBminusA": "B − A"
+  },
+
+  "common": {
+    "appTitle": "Decagon",
+    "appDescription": "Math calculator with visualisation",
+    "close": "Close"
+  },
+
+  "sidebar": {
+    "title": "Sidebar",
+    "description": "Displays the mobile sidebar.",
+    "toggle": "Toggle Sidebar"
+  },
+
+  "rotate": {
+    "title": "Rotate your vector",
+    "button": "Rotate",
+    "placeholder": "142"
+  },
+
+  "normalize": {
+    "title": "Normalize your vector",
+    "button": "Normalize"
+  },
 
   "invert": {
+    "title": "Invert your vector",
     "completely": "Completely"
   },
-  "invertTitle": "Invert your vector",
 
-  "rotate": "Rotate",
-  "rotateTitle": "Rotate your vector",
+  "vectorProperties": {
+    "current": "Current",
+    "vectorCoordinates": "vector coordinates",
+    "where": "where:",
+    "pointsDescription": "A is the starting point, B is the ending point of the vector"
+  },
 
   "vector": {
     "length": {

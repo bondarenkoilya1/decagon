@@ -9,7 +9,7 @@ import { BadgeGroup, MatrixCellGroup, useMatrixIndexingMode } from "src/entities
 import { Panel, Separator, Typography } from "src/shared";
 
 export const SingleMatrixForm: FC = () => {
-  const t = useTranslations();
+  const t = useTranslations("matrix.form");
   const matrixIndexingMode = useMatrixIndexingMode();
   const {
     rowsCount,
@@ -27,12 +27,12 @@ export const SingleMatrixForm: FC = () => {
       className="rounded border border-solid border-gray-300 p-3"
       tag="form"
       onSubmit={(event) => recreateMatrix(event, rowsCount, columnsCount)}>
-      <Typography.H5>Create and modify your matrix</Typography.H5>
+      <Typography.H5>{t("title")}</Typography.H5>
       <Separator className="mt-2" />
 
-      <BadgeGroup label="Rows" selected={rowsCount} onSelect={setRows} onStep={stepRows} />
+      <BadgeGroup label={t("rows")} selected={rowsCount} onSelect={setRows} onStep={stepRows} />
       <BadgeGroup
-        label="Columns"
+        label={t("columns")}
         selected={columnsCount}
         onSelect={setColumns}
         onStep={stepColumns}
@@ -41,7 +41,7 @@ export const SingleMatrixForm: FC = () => {
       <MatrixCellGroup matrix={matrixSize} matrixIndexingMode={matrixIndexingMode} />
 
       <Separator className="my-3" />
-      <Typography.Shy>{t("matrix.form.hint")}</Typography.Shy>
+      <Typography.Shy>{t("hint")}</Typography.Shy>
     </Panel>
   );
 };

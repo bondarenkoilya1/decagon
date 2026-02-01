@@ -6,7 +6,7 @@ import type { ClassNameProp } from "src/shared";
 import { useVectorLength, useVectorScale } from "src/features";
 import { ScaleInput } from "src/features/vector-scale/ui/scale-input";
 
-import { LengthDisplay } from "src/entities";
+import { VectorMagnitude } from "src/entities";
 
 import { Panel } from "src/shared";
 
@@ -44,10 +44,10 @@ export const VectorScalePanel = ({ className }: ClassNameProp): JSX.Element => {
 
   return (
     <Panel className={className}>
-      <LengthDisplay
-        vectorLength={vectorLength}
-        xProjectionLength={xProjectionLength}
-        yProjectionLength={yProjectionLength}
+      <VectorMagnitude
+        magnitude={vectorLength}
+        xProjection={xProjectionLength}
+        yProjection={yProjectionLength}
       />
       {elements.map((element) => (
         <ScaleInput element={element} register={register} onScale={scaleAxis} key={element.name} />

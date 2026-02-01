@@ -14,12 +14,13 @@ export const CopyVectorPlacementButton: FC<CopyVectorPlacementButtonProps> = ({
   className
 }) => {
   const t = useTranslations();
+  const tCopy = useTranslations("copy");
   const isSubscriber = useSubscriberState();
 
   const copy = (): void => {
     isSubscriber
-      ? copyVectorPlacement(vectorPlacement)
-      : toast("Only premium users can use this feature");
+      ? copyVectorPlacement(vectorPlacement, { successMessage: tCopy("success") })
+      : toast(tCopy("premiumOnly"));
   };
 
   return (

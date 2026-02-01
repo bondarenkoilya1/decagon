@@ -1,9 +1,10 @@
 "use client";
+
 import type { FC } from "react";
 import { Boxes } from "lucide-react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
-import type { NavigationItemProps, NavigationSectionProps } from "src/shared";
+import { Link } from "src/i18n";
+import type { NavigationSectionProps } from "src/shared";
 
 import {
   Sidebar,
@@ -17,12 +18,12 @@ import {
   SidebarMenuItem
 } from "src/shared";
 
-type SidebarProps = {
+type AppSidebarProps = {
   title: string;
   components?: NavigationSectionProps[];
 };
 
-export const AppSidebar: FC<SidebarProps> = ({ title, components }) => {
+export const AppSidebar: FC<AppSidebarProps> = ({ title, components }) => {
   const t = useTranslations();
 
   return (
@@ -33,15 +34,14 @@ export const AppSidebar: FC<SidebarProps> = ({ title, components }) => {
       </SidebarHeader>
 
       <SidebarContent>
-        {components?.map((section: NavigationSectionProps) => (
+        {components?.map((section) => (
           <SidebarGroup key={section.title}>
             <SidebarGroupLabel>{t(section.title)}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {section.items.map((item: NavigationItemProps) => (
+                {section.items.map((item) => (
                   <SidebarMenuItem key={item.url}>
                     <SidebarMenuButton asChild>
-                      {/*todo: navlink*/}
                       <Link href={item.url}>{t(item.title)}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

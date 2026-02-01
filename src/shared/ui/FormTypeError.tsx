@@ -3,12 +3,12 @@ import { TriangleAlert } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export const FormTypeError = (): JSX.Element => {
-  const t = useTranslations();
+  const t = useTranslations("form.type");
 
   return (
     <p className="flex">
       <TriangleAlert className="mr-2 text-yellow-500" />
-      <span>{t("form.type.error")}</span>
+      <span>{t("error")}</span>
     </p>
   );
 };

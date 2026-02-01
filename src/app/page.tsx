@@ -1,41 +1,6 @@
-"use client";
-import type { JSX } from "react";
-import { useTranslations } from "next-intl";
+import { redirect } from "next/navigation";
+import { routing } from "src/i18n/routing";
 
-import { VectorCreateForm, VectorPropertiesPanel, VectorScalePanel } from "src/features";
-
-import { useVectorPlacement, Vector, VectorContainer, VectorSettingsPanel } from "src/entities";
-
-import { Container, Typography } from "src/shared";
-
-const VectorPage = (): JSX.Element => {
-  const vectorPlacement = useVectorPlacement();
-  const t = useTranslations();
-
-  return (
-    <Container>
-      <Typography.H1 className="mb-8 w-fit border-b-4 border-blue-500 pb-2">
-        {t("vectors.single.title")}
-      </Typography.H1>
-
-      <div className="flex">
-        <VectorContainer>
-          <Vector placement={vectorPlacement} />
-        </VectorContainer>
-        <div className="ml-10 max-w-fit">
-          <VectorCreateForm type="single" />
-        </div>
-      </div>
-
-      <div className="mt-10 flex w-fit items-start">
-        <div className="mr-5">
-          <VectorPropertiesPanel />
-          <VectorScalePanel className="mt-5" />
-        </div>
-        <VectorSettingsPanel />
-      </div>
-    </Container>
-  );
-};
-
-export default VectorPage;
+export default function RootPage(): never {
+  redirect(`/${routing.defaultLocale}`);
+}

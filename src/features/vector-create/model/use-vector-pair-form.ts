@@ -9,7 +9,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useVectorPairActions, useVectorPairPlacement, VectorPairFormSchema } from "src/entities";
 
+import { useDrawVector } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
+import { placementToMatrix } from "src/shared/ui/coordinates-system/lib";
 
 type UseVectorPairFormType = UseFormReturn<VectorPairFormValues> & {
   onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
@@ -18,6 +20,7 @@ type UseVectorPairFormType = UseFormReturn<VectorPairFormValues> & {
 export const useVectorPairForm = (): UseVectorPairFormType => {
   const vectorPlacement = useVectorPairPlacement();
   const { setVectorPlacement } = useVectorPairActions();
+  const { drawVector } = useDrawVector();
 
   const formMethods = useForm<VectorPairFormValues>({
     resolver: zodResolver(VectorPairFormSchema)
@@ -44,18 +47,23 @@ export const useVectorPairForm = (): UseVectorPairFormType => {
       Object.entries(data).map(([k, v]) => [k, safeParseNumber(v)])
     ) as VectorPairFormValues;
 
-    setVectorPlacement(0, {
+    const v1 = {
       xStart: parsed.x1Start,
       xEnd: parsed.x1End,
       yStart: parsed.y1Start,
       yEnd: parsed.y1End
-    });
-    setVectorPlacement(1, {
+    };
+    const v2 = {
       xStart: parsed.x2Start,
       xEnd: parsed.x2End,
       yStart: parsed.y2Start,
       yEnd: parsed.y2End
-    });
+    };
+
+    setVectorPlacement(0, v1);
+    setVectorPlacement(1, v2);
+    drawVector(placementToMatrix(v1));
+    drawVector(placementToMatrix(v2));
   });
 
   return { ...formMethods, onSubmit };

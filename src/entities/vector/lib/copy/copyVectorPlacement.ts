@@ -10,8 +10,10 @@ const formatPart = (part: string): string =>
     .replace(/:/g, ": ")
     .replace(/,/g, "\n"); // Place each coordinate in a separate line
 
+type CopyOptions = { successMessage?: string };
+
 // UNIT TEST
-export const copyVectorPlacement = (string: string): void => {
+export const copyVectorPlacement = (string: string, options?: CopyOptions): void => {
   const parts = string.split("},"); // To be able to use .length below
   const formattedString = parts
     .map((part, index) => {
@@ -21,8 +23,8 @@ export const copyVectorPlacement = (string: string): void => {
     })
     .join("\n\n");
 
-  copyToClipboard(formattedString)
-    .then((info) => toast(info))
+  copyToClipboard(formattedString, options?.successMessage)
+    .then((message) => toast(message))
     .catch((error) => {
       toast(error.message || String(error));
       console.error(error);
