@@ -9,7 +9,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useVectorActions, useVectorPlacement, VectorFormSchema } from "src/entities";
 
+import { useDrawVector } from "src/shared";
 import { safeParseNumber } from "src/shared/lib/parse";
+import { placementToMatrix } from "src/shared/ui/coordinates-system/lib";
 
 type UseVectorFormType = UseFormReturn<VectorFormValues> & {
   onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
@@ -17,6 +19,7 @@ type UseVectorFormType = UseFormReturn<VectorFormValues> & {
 
 export const useVectorForm = (): UseVectorFormType => {
   const vectorPlacement = useVectorPlacement();
+  const { drawVector } = useDrawVector();
   const formMethods = useForm<VectorFormValues>({
     resolver: zodResolver(VectorFormSchema),
     defaultValues: vectorPlacement
@@ -24,7 +27,6 @@ export const useVectorForm = (): UseVectorFormType => {
   const { reset, handleSubmit } = formMethods;
   const { setVectorPlacement } = useVectorActions();
 
-  // Updates form values with the current vector coordinates
   useEffect(() => reset(vectorPlacement), [reset, vectorPlacement]);
 
   const createVector: SubmitHandler<VectorFormValues> = (inputValues) => {
@@ -33,6 +35,7 @@ export const useVectorForm = (): UseVectorFormType => {
     ) as VectorFormValues;
 
     setVectorPlacement(sanitizedValues);
+    drawVector(placementToMatrix(sanitizedValues));
   };
 
   return { ...formMethods, onSubmit: handleSubmit(createVector) };

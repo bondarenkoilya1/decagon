@@ -42,7 +42,7 @@ const VectorInputsContainer: FC<VectorInputsContainerProps> = ({ number, registe
   const vectorLetter = convertNumberToCapitalLetter(number);
 
   return (
-    <ul className="[&+&]:mt-5">
+    <ul className="[&:not(:last-child)]:mt-5">
       <Typography.H5 className="mb-3">
         Vector <Typography.Highlighted>{vectorLetter}</Typography.Highlighted>
       </Typography.H5>

@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+"use client";
+import type { RefObject } from "react";
+import { useEffect, useRef } from "react";
 
 import {
   drawAxes,
@@ -7,8 +9,13 @@ import {
   drawGridLabels,
   setupCanvas
 } from "src/shared/ui/coordinates-system/lib";
-import type { CanvasPropertiesType, CanvasRefsType } from "src/shared/ui/coordinates-system/model";
-import { COLORS, GRID_STEP, LABELS_OFFSET } from "src/shared/ui/coordinates-system/model";
+import type { CanvasPropertiesType } from "src/shared/ui/coordinates-system/model";
+import {
+  COLORS,
+  GRID_STEP,
+  LABELS_OFFSET,
+  useCanvasActions
+} from "src/shared/ui/coordinates-system/model";
 
 const renderCoordinateSystem = (canvasProperties: CanvasPropertiesType): void => {
   drawGrid(canvasProperties, GRID_STEP, COLORS.grid);
@@ -17,10 +24,14 @@ const renderCoordinateSystem = (canvasProperties: CanvasPropertiesType): void =>
   drawAxesLabels(canvasProperties, COLORS.labels, LABELS_OFFSET);
 };
 
-export const useInitializeCanvas = (
-  canvasRef: CanvasRefsType["canvasRef"],
-  ctxRef: CanvasRefsType["ctxRef"]
-): void => {
+type UseInitializeCanvasReturnType = {
+  canvasRef: RefObject<HTMLCanvasElement | null>;
+};
+
+export const useInitializeCanvas = (): UseInitializeCanvasReturnType => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { setCanvasRef, setCtxRef } = useCanvasActions();
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) {
@@ -28,9 +39,18 @@ export const useInitializeCanvas = (
     }
 
     const ctx = setupCanvas(canvas);
-    ctxRef.current = ctx;
+
+    setCanvasRef(canvas);
+    setCtxRef(ctx);
 
     const { width, height } = canvas.getBoundingClientRect();
     renderCoordinateSystem({ ctx, width, height });
-  }, [canvasRef, ctxRef]);
+
+    return () => {
+      setCanvasRef(null);
+      setCtxRef(null);
+    };
+  }, [setCanvasRef, setCtxRef]);
+
+  return { canvasRef };
 };

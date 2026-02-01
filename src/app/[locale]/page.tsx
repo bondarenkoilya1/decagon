@@ -6,8 +6,7 @@ import { VectorCreateForm, VectorPropertiesPanel, VectorScalePanel } from "src/f
 
 import { VectorSettings } from "src/entities";
 
-import { Container, Typography } from "src/shared";
-import { CoordinatesSystem } from "src/shared/ui/coordinates-system";
+import { Container, CoordinatesSystem, Typography } from "src/shared";
 
 const VectorPage = (): JSX.Element => {
   const t = useTranslations("vectorsTitle");

@@ -4,16 +4,9 @@ import { useTranslations } from "next-intl";
 
 import { CopyVectorPlacementButton, VectorCreateForm } from "src/features";
 
-import {
-  TwoVectorsSettingsPanel,
-  useVectorPairPlacement
-  // Vector,
-  // VectorContainer
-} from "src/entities";
+import { TwoVectorsSettingsPanel, useVectorPairPlacement } from "src/entities";
 
 import { Container, Typography } from "src/shared";
-
-// const vectorStyles = "absolute inset-0 w-full h-full";
 
 const TwoVectorsPage = (): JSX.Element => {
   const vectorPlacement = useVectorPairPlacement();
@@ -26,10 +19,6 @@ const TwoVectorsPage = (): JSX.Element => {
       </Typography.H1>
 
       <div className="flex">
-        {/*<VectorContainer>*/}
-        {/*  <Vector placement={vectorPlacement[0]} markerId="head-1" className={vectorStyles} />*/}
-        {/*  <Vector placement={vectorPlacement[1]} markerId="head-2" className={vectorStyles} />*/}
-        {/*</VectorContainer>*/}
         <div className="ml-10 max-w-fit">
           <VectorCreateForm type="pair" />
           <CopyVectorPlacementButton

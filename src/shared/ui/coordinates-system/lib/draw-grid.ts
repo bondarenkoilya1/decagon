@@ -41,6 +41,6 @@ export const drawGridLabels = (
     if (y === height / 2) {
       continue;
     }
-    ctx.fillText(String(diapason[i]), width / 2 - 14, y + 4);
+    ctx.fillText(String(diapason[step - i]), width / 2 - 14, y + 4);
   }
 };
