@@ -1,2 +1,2 @@
-export * from "./useInitializeCanvas";
-export * from "./useDrawVector";
+export * from "./use-initialize-canvas";
+export * from "./use-draw-vector";

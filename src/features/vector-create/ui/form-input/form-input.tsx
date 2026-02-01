@@ -11,7 +11,7 @@ export const FormInput = ({ label, name, register }: FormInputProps): JSX.Elemen
 
   return (
     <div className="grid max-w-sm items-center gap-1" key={crypto.randomUUID()}>
-      <Label htmlFor={name}>{t(label)}</Label>
+      <Label htmlFor={name}>{t(label as never)}</Label>
       <Input {...register(name, { setValueAs: safeParseNumber })} type="number" id={name} />
     </div>
   );

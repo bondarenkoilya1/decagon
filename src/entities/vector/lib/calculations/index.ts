@@ -1,2 +1,2 @@
 export * from "./getVectorLength";
-export * from "./roundCoordinates";
+export * from "./round-coordinates";

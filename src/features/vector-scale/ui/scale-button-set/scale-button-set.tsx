@@ -39,7 +39,7 @@ export const ScaleButtonSet = ({
           className="w-1.5/6"
           variant="outline"
           key={text}>
-          {t(text)}
+          {t(text as never)}
         </Button>
       ))}
     </>
