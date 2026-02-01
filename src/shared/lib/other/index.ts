@@ -1,2 +1,2 @@
-export * from "./copyToClipboard";
+export * from "./copy-to-clipboard";
 export * from "./cn";

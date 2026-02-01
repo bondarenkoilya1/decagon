@@ -1,1 +1,1 @@
-export * from "./copyVectorPlacement";
+export * from "./copy-vector-placement";

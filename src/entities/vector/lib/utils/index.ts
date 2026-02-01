@@ -1,1 +1,1 @@
-export * from "./createInitialVectorPlacement";
+export * from "./create-initial-vector-placement";

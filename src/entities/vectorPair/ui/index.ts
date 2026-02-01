@@ -1,1 +1,1 @@
-export * from "./VectorPairSettingsPanel";
+export * from "./vector-pair-settings-panel";
