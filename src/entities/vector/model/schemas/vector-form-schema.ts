@@ -7,16 +7,8 @@ export const VectorFormSchema = z.object({
   yEnd: z.number()
 });
 
-// TODO: Bad way to do like that
 export const VectorPairFormSchema = z.object({
-  x1Start: z.number(),
-  x1End: z.number(),
-  y1Start: z.number(),
-  y1End: z.number(),
-  x2Start: z.number(),
-  x2End: z.number(),
-  y2Start: z.number(),
-  y2End: z.number()
+  vectors: z.tuple([VectorFormSchema, VectorFormSchema])
 });
 
 export type VectorFormValues = z.infer<typeof VectorFormSchema>;

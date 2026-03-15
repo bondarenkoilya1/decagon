@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { transferDegreeToRadian } from "src/shared";
 
-describe("Round to Fixed Decimal", () => {
+describe("Transfer degree to radian", () => {
   it("Valid neutral number case", () => {
     expect(transferDegreeToRadian(0)).toBe(0);
   });
