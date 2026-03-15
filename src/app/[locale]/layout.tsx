@@ -7,13 +7,7 @@ import type { Children } from "src/shared";
 
 import { AppSidebar, Header } from "src/widgets";
 
-import {
-  SIDEBAR_NAVIGATION_ITEMS,
-  SidebarInset,
-  SidebarProvider,
-  Toaster,
-  WEBSITE_NAME
-} from "src/shared";
+import { SIDEBAR_NAVIGATION_ITEMS, SidebarInset, SidebarProvider, WEBSITE_NAME } from "src/shared";
 
 import NotFoundPage from "../not-found";
 
@@ -39,7 +33,7 @@ type LocaleLayoutProps = Readonly<Children> & { params: LocaleParams };
 
 const LocaleLayout = async ({ children, params }: LocaleLayoutProps): Promise<JSX.Element> => {
   const { locale } = await params;
-
+  // todo! fix error. when no env website name i can't open sidebar
   if (!hasLocale(routing.locales, locale)) {
     const messages = (await import(`../../../messages/${routing.defaultLocale}.json`)).default;
     return (
@@ -54,7 +48,6 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps): Promise<JS
               <Header />
               <main className="flex-1 p-6">
                 <NotFoundPage />
-                <Toaster />
               </main>
             </SidebarInset>
           </div>
@@ -75,10 +68,7 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps): Promise<JS
 
           <SidebarInset className="flex-1">
             <Header />
-            <main className="flex-1 p-6">
-              {children}
-              <Toaster />
-            </main>
+            <main className="flex-1 p-6">{children}</main>
           </SidebarInset>
         </div>
       </SidebarProvider>
