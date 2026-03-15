@@ -9,11 +9,11 @@ type UseVectorPropertiesType = {
   endCoordinates: number[];
 };
 
+const roundCoordinates = (coordinates: number[]): number[] =>
+  coordinates.map((coordinate) => roundTo(coordinate, 2));
+
 export const useVectorProperties = (): UseVectorPropertiesType => {
   const { xStart, yStart, xEnd, yEnd } = useVectorPlacement();
-
-  const roundCoordinates = (coordinates: number[]): number[] =>
-    coordinates.map((coordinate) => roundTo(coordinate, 2));
 
   const vectorCoordinates = roundCoordinates([xEnd - xStart, yEnd - yStart]);
   const startCoordinates = roundCoordinates([xStart, yStart]);
